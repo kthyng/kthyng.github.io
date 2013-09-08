@@ -1,4 +1,0 @@
-kthyng.github.io
-================
-
-Blog
