@@ -68,22 +68,38 @@ Released for free under a Creative Commons Attribution 3.0 License
            </p>
         </div>
         <div class="maincontent">
+            <a name="tracpy"/><h3>Particle Tracking</h3></a>
+            <p>
+                <img src="images/transport.png" class="picFloat" width="40%">
+                As part of the <a href="http://gisr.tamu.edu">Gulf Integrated Spill Research (GISR)</a> consortium, we have wrapped the particle tracking code <a href="http://tracmass.org">TRACMASS</a> in Python to make it easy to utilize with our model output, and by other researchers. We call this wrapped code system <a href="https://github.com/kthyng/tracpy">TracPy</a>.<br><br>
+
+                TRACMASS steps drifters forward natively on a staggered and structured numerical grid. Because the algorithm conserves mass, the drifters can be used to represent the transport of water parcels or other materials.
+            </p>
+        </div>
+        <div class="maincontent">
+            <a name="connectivity"/><h3>Shelf Connectivity</h3></a>
+            <p>
+                <img src="images/shelfhistcontour_25days.png" class="picFloat" width="40%">
+                What material can reach the Texas-Louisiana shelf from off-shore to potentially impact the coastline, or from near-shore to exit toward the deep Gulf of Mexico, is controlled by whether it can cross the shelf. Therefore, understanding more about the processes that control this crossing and connectivity between areas can tell us about the areas of largest potential impact from an oil spill, for example. <br><br>
+
+                Using drifter tracks run in TracPy, we are examining this connectivity in space as well as in time to understand the areas of large and small cross-shelf transport and how they change seasonally and inter-annually.
+            </p>
+        </div>
+        <div class="maincontent">
+            <a name="statistics"/><h3>Shelf Dispersion Statistics</h3></a>
+            <p>
+                <img src="images/relative_diffusion_comp.pdf" class="picFloat" width="40%">
+                By combining the information together from many numerical drifter tracks, we can understand a system from a perspective that is oriented toward transport specifically. Metrics run on these drifters, such as absolute and relative dispersion and the finite scale Lyapunov exponent, can help us infer many attributes of the flow fields that can be difficult to assess otherwise, such as the nature of the turbulence.
+            </p>
+        </div>
+        <div class="maincontent">
             <a name="HAB"><h3>Harmful Algal Bloom Modeling</h3></a>
             <p> 
                 <img src="images/hab.png" class="picFloat" width="40%">
                 Harmful algal blooms (specifically red tides, in this research) occur periodically in the fall in Texas waters and can cause respiratory problems in fishermen and boaters and shut down recreation and shellfish harvesting in the affected areas. Biological effects alone do not adequately explain the rapidity with which harmful algal bloom events can occur. However, some recent research indicates that the circulation of the northern Gulf of Mexico can help to explain the occurrences. 
                 <br><br>
                 Recent work with <a href="http://pong.tamu.edu/~rob/">Rob Hetland</a>, in collaboration with <a href="http://ocean.tamu.edu/lcampbell/campbell/index.html">Lisa Campbell</a>, is focused on better understanding the source of harmful algal blooms off the Texas coastline using a <a href="http://pong.tamu.edu/%7Ezhangxq/tglo1.html">numerical model of the Texas and Louisiana shelf waters</a>.<br><br>
-                Thyng, K. M., Hetland, R. D., Ogle, M. T., Zhang, X., Chen, F., &amp; Campbell, L. (2013). Origins of harmful algal blooms along the Texas coast. Limnology and Oceanography: Fluids &amp; Environment (in review).
-            </p>
-        </div>
-        <div class="maincontent">
-            <a name="GISR"/><h3>Oil Transport and Fate</h3></a>
-            <p>
-                <img src="images/domain.png" class="picFloat" width="40%">
-                As part of the <a href="http://gisr.tamu.edu">Gulf Integrated Spill Research (GISR)</a> consortium, my group is one-way nesting a ROMS model of the Texas-Louisiana shelf in a Gulf of Mexico model, which will force a SUNTANS model of Galveston Bay. A near-field subsea blow-out model will determine the composition of oil and gas with depth, which will then be traced through the nested models to understand the fate of oil from an oil spill. <br><br>
-
-                We are working on wrapping the particle tracking code <a href="http://tracmass.org">TRACMASS</a> in Python to make it easy to utilize with our model output, and by other researchers. We call this wrapped code system <a href="https://github.com/kthyng/tracpy">Tracpy</a>.
+                Thyng, K. M., Hetland, R. D., Ogle, M. T., Zhang, X., Chen, F., &amp; Campbell, L. (2013). Origins of harmful algal blooms along the Texas coast. Limnology and Oceanography: Fluids &amp; Environment (accepted).
             </p>
         </div>
         <div class="maincontent">
@@ -132,6 +148,8 @@ Released for free under a Creative Commons Attribution 3.0 License
                 <img src="images/mat49.png" class="picFloat" width="40%">
                 Tidal hydrokinetic energy has the potential to provide cities near strong tidal currents with clean, sustainable, renewable energy. However, the interplay between turbines in the flow and the flow itself are not well understood. Before placing arrays of turbines in the water, models should be run to help anticipate the effects of the devices. In a collaboration with Thomas Roc, formerly at University of Plymouth and currently at ITP Offshore Consulting, a turbine model in ROMS is implemented in an idealized but realistic simulation. Animations of these simulations are <a href="roc_page.html">available</a>.
                 <br><br>
+                Roc, T., Greaves, D., Thyng, K. M., &amp; Conley, D. (2013). Tidal turbine representation in an ocean circulation model: Towards realistic applications. Ocean Engineering (accepted).
+                <br><br>
                 Thyng, K. M. &amp; Roc, T. (2013). Tidal current turbine power capture and impact in an idealised channel simulation. Proceedings European Wave and Tidal Energy Conference. Aalborg, Denmark.
                 <br><br>
                 Roc, T., Thyng, K. M., &amp; Conley, D. (2011). Applying a numerical decision-making tool for tidal current turbine (TCT) planning projects to the Puget Sound estuary - Early Results. Proceedings European Wave and Tidal Energy Conference. Southampton, UK.
@@ -163,8 +181,10 @@ Released for free under a Creative Commons Attribution 3.0 License
         <div class="links">
             <h3>Projects</h3>
             <ul>
+                <li><a href="#tracpy">Particle Tracking</a></li>
+                <li><a href="#connectivity">Shelf Connectivity</a></li>
+                <li><a href="#statistics">Shelf Dispersion Statistics</a></li>
                 <li><a href="#HAB">Harmful Algal Bloom Modeling</a></li>
-                <li><a href="#GISR">Oil Transport and Fate</a></li>
                 <li><a href="#drifters">Drifter Monitoring</a></li>
                 <li><a href="#vorticity">Headland-Generated Tidal Vorticity</a></li>
                 <li><a href="#turbulence">Turbulence Modeling</a></li>
