@@ -53,15 +53,18 @@
             
 
                             <header>
-                <h2><a href="http://www.kristenthyng.com/blog/2013/11/26/scipy-plotting-competition/" id="page-title">Using Taskset</a></h2>
+                <h2><a href="http://www.kristenthyng.com/blog/2013/11/26/using-taskset/" id="page-title">Using Taskset</a></h2>
                 <time datetime="2013-11-26T17:00:00">Nov 26, 2013</time> 
                 <br><br>
             </header>
             <article>
-            <p>Multiple instances of the simulation can be run on different cores if you have a multi-core Linux machine. To do this, use <code>taskset</code>:
+            <p>[NOte this won't work on a mac]</p>
+<p>When I am running analysis or plotting scripts on a Linux workstation, I often employ "poor a man's" parallel processing: starting multiple instances of a script with different parameters to speed up the results. I have noticed that instead of nicely shifting each new process to a separate processor on the workstation, some</p>
+<p>Multiple instances of the simulation can be run on different cores if you have a multi-core Linux machine. To do this, use <code>taskset</code>:
 <code>taskset 3 python2.7 run.py &gt; temp_log.txt &amp;</code>
-This command runs the run.py script for a specific project in the background (due to the &amp;), redirects the output from the screen to the text file 'temp_log.txt', and runs the process on core 3. This command can then be used for other instances by choosing a different core after the command <code>taskset</code>.</p>
-<p>If a process is already running, you can check its current core using its PID:
+This command runs the run.py script for a specific project in the background (due to the &amp;), redirects the output from the screen to the text file 'temp_log.txt', and runs the process on core 3. This command can then be used for other instances by choosing a different core after the command <code>taskset</code>.
+<br><br>
+If a process is already running, you can check its current core using its PID:
 <code>taskset -p [PID]</code>
 Then you can move the process to a different core using
 <code>taskset -p [CORE NUMBER] [PID]</code></p>

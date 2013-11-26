@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kristen M. Thyng, Ph.D.</title>
+<title>Kristen M. Thyng, Ph.D. : Using Taskset</title>
 <link href="http://fonts.googleapis.com/css?family=Abel|Arvo" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="http://www.kristenthyng.com/blog/theme/css/styles.css" type="text/css" />
 
@@ -49,18 +49,25 @@
 <!--         <div class="clearfloat"></div>
         <div><img src="http://www.kristenthyng.com/blog/theme/images/header.jpg" alt="" width=100% /></div> -->
     </div>
-<section id="content" class="body">
-<h1>Blog Archive</h1>
+        
+<header>
+    <h2>Using Taskset</h2>
+    <time datetime="2013-11-26T17:00:00">Nov 26, 2013</time></header>
+<br>
+<article>
+    <p>[NOte this won't work on a mac]</p>
+<p>When I am running analysis or plotting scripts on a Linux workstation, I often employ "poor a man's" parallel processing: starting multiple instances of a script with different parameters to speed up the results. I have noticed that instead of nicely shifting each new process to a separate processor on the workstation, some</p>
+<p>Multiple instances of the simulation can be run on different cores if you have a multi-core Linux machine. To do this, use <code>taskset</code>:
+<code>taskset 3 python2.7 run.py &gt; temp_log.txt &amp;</code>
+This command runs the run.py script for a specific project in the background (due to the &amp;), redirects the output from the screen to the text file 'temp_log.txt', and runs the process on core 3. This command can then be used for other instances by choosing a different core after the command <code>taskset</code>.
 <br><br>
-<dl>
-    <dt><strong><a href='2013/10/14/scipy-plotting-competition/'>SciPy Conference and John Hunter Excellence in Plotting Competition</a></strong></dt>
-    <dd>Oct 14, 2013</dd>
-    <br>
-    <dt><strong><a href='2013/11/26/using-taskset/'>Using Taskset</a></strong></dt>
-    <dd>Nov 26, 2013</dd>
-    <br>
-</dl>
-</section>
+If a process is already running, you can check its current core using its PID:
+<code>taskset -p [PID]</code>
+Then you can move the process to a different core using
+<code>taskset -p [CORE NUMBER] [PID]</code></p>
+<p>In June I attended my first SciPy conference. It was in Austin, TX, as usual. I wasn't sure what to expect, this being my first conference about a tool instead of research itself, but I enjoyed it. It was a great opportunity to meet people outside my immediate field and also to meet up with several in my own. I attended tutorials, the conference itself, and the sprints, and throughout, I learned of several new tools to try and about how to best do my research within the framework of open science and reproducibility, both themes of the conference.</p>
+<p>There was a plotting competition as part of the conference, the John Hunter Excellence in Plotting competition. I submitted a figure from my research and got second place! A gallery of the entries is <a href="http://conference.scipy.org/jhepc2013/index.html">available online</a>. As part of being ranked highly in the competition, I got to sit on the stage at the conference and participate in a panel on visualization practices.</p>
+</article>
 <br>
 
 <footer>
