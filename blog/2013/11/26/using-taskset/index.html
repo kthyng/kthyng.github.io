@@ -55,18 +55,18 @@
     <time datetime="2013-11-26T17:00:00">Nov 26, 2013</time></header>
 <br>
 <article>
-    <p>[NOte this won't work on a mac]</p>
-<p>When I am running analysis or plotting scripts on a Linux workstation, I often employ "poor a man's" parallel processing: starting multiple instances of a script with different parameters to speed up the results. I have noticed that instead of nicely shifting each new process to a separate processor on the workstation, some</p>
-<p>Multiple instances of the simulation can be run on different cores if you have a multi-core Linux machine. To do this, use <code>taskset</code>:
-<code>taskset 3 python2.7 run.py &gt; temp_log.txt &amp;</code>
-This command runs the run.py script for a specific project in the background (due to the &amp;), redirects the output from the screen to the text file 'temp_log.txt', and runs the process on core 3. This command can then be used for other instances by choosing a different core after the command <code>taskset</code>.
-<br><br>
-If a process is already running, you can check its current core using its PID:
-<code>taskset -p [PID]</code>
-Then you can move the process to a different core using
-<code>taskset -p [CORE NUMBER] [PID]</code></p>
-<p>In June I attended my first SciPy conference. It was in Austin, TX, as usual. I wasn't sure what to expect, this being my first conference about a tool instead of research itself, but I enjoyed it. It was a great opportunity to meet people outside my immediate field and also to meet up with several in my own. I attended tutorials, the conference itself, and the sprints, and throughout, I learned of several new tools to try and about how to best do my research within the framework of open science and reproducibility, both themes of the conference.</p>
-<p>There was a plotting competition as part of the conference, the John Hunter Excellence in Plotting competition. I submitted a figure from my research and got second place! A gallery of the entries is <a href="http://conference.scipy.org/jhepc2013/index.html">available online</a>. As part of being ranked highly in the competition, I got to sit on the stage at the conference and participate in a panel on visualization practices.</p>
+    <p>When I am running analysis or plotting scripts on a Linux workstation, I often employ "poor a man's" parallel processing: starting multiple instances of a script with different parameters to decrease the amount of time until I get my results. I have noticed that instead of nicely shifting each new process to a separate core on the workstation, sometimes the processes will get stacked on one core. I figured out how to manually move them around with a lot of googling one day, so I am hoping to save someone the same trouble. Note that this will not work on a Mac.
+<br><br></p>
+<ul>
+<li>Start your processes</li>
+<li>Find the process PIDs with <code>top</code> or your favorite method</li>
+<li>Check which node the processes are running on with <br>
+<code>taskset -p [PID]</code> <br>
+for each process PID</li>
+<li>If the node number is the same for multiple processes, you will want to change the node being used to spread them out. If your Linux machine has 12 nodes, choose a different number between 0 and 11 from the other process. Change the process node with<br>
+<code>taskset -p [CORE NUMBER] [PID]</code></li>
+<li>Another check to <code>top</code> should show that the processes are now each allowed to use 100% of the CPU per node instead of sharing.</li>
+</ul>
 </article>
 <br>
 
