@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Kristen M. Thyng, Ph.D.</title><link href="http://www.kristenthyng.com/blog/" rel="alternate"></link><link href="http://www.kristenthyng.com/blog/feeds/.atom.xml" rel="self"></link><id>http://www.kristenthyng.com/blog/</id><updated>2013-11-26T17:00:00-06:00</updated><entry><title>Using Taskset</title><link href="http://www.kristenthyng.com/blog/2013/11/26/using-taskset/" rel="alternate"></link><updated>2013-11-26T17:00:00-06:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com/blog,2013-11-26:2013/11/26/using-taskset/</id><summary type="html">&lt;p&gt;When I am running analysis or plotting scripts on a Linux workstation, I often employ a "poor man's" parallel processing: starting multiple instances of a script with different parameters to decrease the amount of time until I get my results. I have noticed that instead of nicely shifting each new process to a separate core on the workstation, sometimes the processes will get stacked on one core. I figured out how to manually move them around with a lot of googling one day, so I am hoping to save someone the same trouble. Note that this will not work on a Mac.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Kristen M. Thyng, Ph.D.</title><link href="http://www.kristenthyng.com/blog/" rel="alternate"></link><link href="http://www.kristenthyng.com/blog/feeds/.atom.xml" rel="self"></link><id>http://www.kristenthyng.com/blog/</id><updated>2014-03-29T10:00:00-05:00</updated><entry><title>Testing netCDF Formats in Python</title><link href="http://www.kristenthyng.com/blog/2014/03/29/python+netcdf4/" rel="alternate"></link><updated>2014-03-29T10:00:00-05:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com/blog,2014-03-29:2014/03/29/python+netcdf4/</id><summary type="html">&lt;p&gt;I had been using various versions of netCDF3 for storing Lagrangian drifter tracks. But, my group had discussed using netCDF4 for improving storage via compression and to potentially use multiple unlimited dimensions. One reason I was holding back was that I had read I would not be able to use MFDataset to combine drifter tracks if I switched to netCDF4. When I started doing simulations with more and more drifters recently, things were really getting bogged down, so I decided it was worth the time to investigate.
+&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;Big picture: netCDF4-CLASSIC works well for my purposes so far and is a big improvement over netCDF3.&lt;/strong&gt;
+&lt;br&gt;&lt;br&gt;
+netCDF4-CLASSIC combines many of the good parts of netCDF3 with some of the abilities of netCDF4. It allows for compression. It does not allow for multiple unlimited dimensions, but I haven't needed that. It does allow for the use of MFDataset for aggregation. It also sped up the process of saving by a huge amount, which for some reason was getting massively bogged down with the large number of drifters being used recently.
+&lt;br&gt;&lt;br&gt;
+I opted to stick with 64 bit format for saving the tracks and lossless compression of information.&lt;/p&gt;
+&lt;h2&gt;Test&lt;/h2&gt;
+&lt;p&gt;I ran the shelf_transport project with 1km initial spacing throughout the domain with no volume transport for 2004-01-01 (drifters run for 30 days). This ran 267622 surface drifters with sampling of the tracks every 48 minutes. A nan is stored once a drifter exits the domain and forever after in the time for that drifter.
+&lt;br&gt;&lt;br&gt;
+This results in a large amount of output and really slowed down getting through runs previously, using netCDF3_64bit.&lt;/p&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;Note that the simulation run time does not include time for saving the tracks.
+Also, I ran the netCDF4 test after the other two, while running 7 other simulations, so I suspect the time difference is mostly due to sharing memory. Regardless, the file size is the same between netCDF4 and netCDF4-CLASSIC. Better timing tests could be done in the future.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;netCDF3_64BIT&lt;/th&gt;
+&lt;th&gt;netCDF4-CLASSIC&lt;/th&gt;
+&lt;th&gt;% decrease in 4C&lt;/th&gt;
+&lt;th&gt;netCDF4&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Simulation run time [s]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;1038&lt;/td&gt;
+&lt;td&gt;1038&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1423&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;File save time [s]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;3527&lt;/td&gt;
+&lt;td&gt;131&lt;/td&gt;
+&lt;td&gt;96&lt;/td&gt;
+&lt;td&gt;152&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;File size [GB]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;3.6&lt;/td&gt;
+&lt;td&gt;2.1&lt;/td&gt;
+&lt;td&gt;42&lt;/td&gt;
+&lt;td&gt;2.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;More Information&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.unidata.ucar.edu/software/netcdf/workshops/2012/netcdf_python/netcdf4python.pdf"&gt;Really useful netCDF4 resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.unidata.ucar.edu/software/netcdf/docs/netcdf/NetCDF_002d4-Classic-Model-Format.html"&gt;Info about the "classic" file format&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="netcdf4"></category><category term="tips"></category></entry><entry><title>Using Taskset</title><link href="http://www.kristenthyng.com/blog/2013/11/26/using-taskset/" rel="alternate"></link><updated>2013-11-26T17:00:00-06:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com/blog,2013-11-26:2013/11/26/using-taskset/</id><summary type="html">&lt;p&gt;When I am running analysis or plotting scripts on a Linux workstation, I often employ a "poor man's" parallel processing: starting multiple instances of a script with different parameters to decrease the amount of time until I get my results. I have noticed that instead of nicely shifting each new process to a separate core on the workstation, sometimes the processes will get stacked on one core. I figured out how to manually move them around with a lot of googling one day, so I am hoping to save someone the same trouble. Note that this will not work on a Mac.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Start your processes&lt;/li&gt;

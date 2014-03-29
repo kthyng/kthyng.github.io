@@ -53,22 +53,64 @@
             
 
                             <header>
-                <h2><a href="http://www.kristenthyng.com/blog/2013/11/26/using-taskset/" id="page-title">Using Taskset</a></h2>
-                <time datetime="2013-11-26T17:00:00">Nov 26, 2013</time> 
+                <h2><a href="http://www.kristenthyng.com/blog/2014/03/29/python+netcdf4/" id="page-title">Testing netCDF Formats in Python</a></h2>
+                <time datetime="2014-03-29T10:00:00">Mar 29, 2014</time> 
                 <br><br>
             </header>
             <article>
-            <p>When I am running analysis or plotting scripts on a Linux workstation, I often employ a "poor man's" parallel processing: starting multiple instances of a script with different parameters to decrease the amount of time until I get my results. I have noticed that instead of nicely shifting each new process to a separate core on the workstation, sometimes the processes will get stacked on one core. I figured out how to manually move them around with a lot of googling one day, so I am hoping to save someone the same trouble. Note that this will not work on a Mac.
-<br><br></p>
+            <p>I had been using various versions of netCDF3 for storing Lagrangian drifter tracks. But, my group had discussed using netCDF4 for improving storage via compression and to potentially use multiple unlimited dimensions. One reason I was holding back was that I had read I would not be able to use MFDataset to combine drifter tracks if I switched to netCDF4. When I started doing simulations with more and more drifters recently, things were really getting bogged down, so I decided it was worth the time to investigate.
+<br><br>
+<strong>Big picture: netCDF4-CLASSIC works well for my purposes so far and is a big improvement over netCDF3.</strong>
+<br><br>
+netCDF4-CLASSIC combines many of the good parts of netCDF3 with some of the abilities of netCDF4. It allows for compression. It does not allow for multiple unlimited dimensions, but I haven't needed that. It does allow for the use of MFDataset for aggregation. It also sped up the process of saving by a huge amount, which for some reason was getting massively bogged down with the large number of drifters being used recently.
+<br><br>
+I opted to stick with 64 bit format for saving the tracks and lossless compression of information.</p>
+<h2>Test</h2>
+<p>I ran the shelf_transport project with 1km initial spacing throughout the domain with no volume transport for 2004-01-01 (drifters run for 30 days). This ran 267622 surface drifters with sampling of the tracks every 48 minutes. A nan is stored once a drifter exits the domain and forever after in the time for that drifter.
+<br><br>
+This results in a large amount of output and really slowed down getting through runs previously, using netCDF3_64bit.</p>
+<h2>Results</h2>
+<p>Note that the simulation run time does not include time for saving the tracks.
+Also, I ran the netCDF4 test after the other two, while running 7 other simulations, so I suspect the time difference is mostly due to sharing memory. Regardless, the file size is the same between netCDF4 and netCDF4-CLASSIC. Better timing tests could be done in the future.</p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>netCDF3_64BIT</th>
+<th>netCDF4-CLASSIC</th>
+<th>% decrease in 4C</th>
+<th>netCDF4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Simulation run time [s]</strong></td>
+<td>1038</td>
+<td>1038</td>
+<td>0</td>
+<td>1423</td>
+</tr>
+<tr>
+<td><strong>File save time [s]</strong></td>
+<td>3527</td>
+<td>131</td>
+<td>96</td>
+<td>152</td>
+</tr>
+<tr>
+<td><strong>File size [GB]</strong></td>
+<td>3.6</td>
+<td>2.1</td>
+<td>42</td>
+<td>2.1</td>
+</tr>
+</tbody>
+</table>
+<h2>More Information</h2>
 <ul>
-<li>Start your processes</li>
-<li>Find the process PIDs with <code>top</code> or your favorite method</li>
-<li>Check which node the processes are running on with <br>
-<code>taskset -p [PID]</code> <br>
-for each process PID</li>
-<li>If the node number is the same for multiple processes, you will want to change the node being used to spread them out. If your Linux machine has 12 nodes, choose a different number between 0 and 11 from the other process. Change the process node with<br>
-<code>taskset -p [CORE NUMBER] [PID]</code></li>
-<li>Another check to <code>top</code> should show that the processes are now each allowed to use 100% of the CPU per node instead of sharing.</li>
+<li><a href="http://www.unidata.ucar.edu/software/netcdf/workshops/2012/netcdf_python/netcdf4python.pdf">Really useful netCDF4 resource</a></li>
+<li><a href="http://www.unidata.ucar.edu/software/netcdf/docs/netcdf/NetCDF_002d4-Classic-Model-Format.html">Info about the "classic" file format</a></li>
 </ul>
             </article>
             <br><br>
@@ -76,6 +118,11 @@ for each process PID</li>
                     <h2>Older posts:</h2>
                     <ul>
                                     
+
+                 
+            <li><a href="http://www.kristenthyng.com/blog/2013/11/26/using-taskset/" rel="bookmark" title="Permalink to Using Taskset">Using Taskset</a> - <time datetime="2013-11-26T17:00:00">Nov 26, 2013</time> <br><br>
+            <p>How to use the taskset command</p><br></li>
+                
 
                  
             <li><a href="http://www.kristenthyng.com/blog/2013/10/14/scipy-plotting-competition/" rel="bookmark" title="Permalink to SciPy Conference and John Hunter Excellence in Plotting Competition">SciPy Conference and John Hunter Excellence in Plotting Competition</a> - <time datetime="2013-10-14T13:20:00">Oct 14, 2013</time> <br><br>
