@@ -53,71 +53,24 @@
             
 
                             <header>
-                <h2><a href="http://www.kristenthyng.com/blog/2014/03/29/python+netcdf4/" id="page-title">Testing netCDF Formats in Python</a></h2>
-                <time datetime="2014-03-29T10:00:00">Mar 29, 2014</time> 
+                <h2><a href="http://www.kristenthyng.com/blog/2014/05/30/goddard/" id="page-title">Visit to NASA Goddard</a></h2>
+                <time datetime="2014-05-30T15:30:00">May 30, 2014</time> 
                 <br><br>
             </header>
             <article>
-            <p>I had been using various versions of netCDF3 for storing Lagrangian drifter tracks. But, my group had discussed using netCDF4 for improving storage via compression and to potentially use multiple unlimited dimensions. One reason I was holding back was that I had read I would not be able to use MFDataset to combine drifter tracks if I switched to netCDF4. When I started doing simulations with more and more drifters recently, things were really getting bogged down, so I decided it was worth the time to investigate.
-<br><br>
-<strong>Big picture: netCDF4-CLASSIC works well for my purposes so far and is a big improvement over netCDF3.</strong>
-<br><br>
-netCDF4-CLASSIC combines many of the good parts of netCDF3 with some of the abilities of netCDF4. It allows for compression. It does not allow for multiple unlimited dimensions, but I haven't needed that. It does allow for the use of MFDataset for aggregation. It also sped up the process of saving by a huge amount, which for some reason was getting massively bogged down with the large number of drifters being used recently.
-<br><br>
-I opted to stick with 64 bit format for saving the tracks and lossless compression of information.</p>
-<h2>Test</h2>
-<p>I ran the shelf_transport project with 1km initial spacing throughout the domain with no volume transport for 2004-01-01 (drifters run for 30 days). This ran 267622 surface drifters with sampling of the tracks every 48 minutes. A nan is stored once a drifter exits the domain and forever after in the time for that drifter.
-<br><br>
-This results in a large amount of output and really slowed down getting through runs previously, using netCDF3_64bit.</p>
-<h2>Results</h2>
-<p>Note that the simulation run time does not include time for saving the tracks.
-Also, I ran the netCDF4 test after the other two, while running 7 other simulations, so I suspect the time difference is mostly due to sharing memory. Regardless, the file size is the same between netCDF4 and netCDF4-CLASSIC. Better timing tests could be done in the future.</p>
-<p><br></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>netCDF3_64BIT</th>
-<th>netCDF4-CLASSIC</th>
-<th>% decrease in 4C</th>
-<th>netCDF4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Simulation run time [s]</strong></td>
-<td>1038</td>
-<td>1038</td>
-<td>0</td>
-<td>1423</td>
-</tr>
-<tr>
-<td><strong>File save time [s]</strong></td>
-<td>3527</td>
-<td>131</td>
-<td>96</td>
-<td>152</td>
-</tr>
-<tr>
-<td><strong>File size [GB]</strong></td>
-<td>3.6</td>
-<td>2.1</td>
-<td>42</td>
-<td>2.1</td>
-</tr>
-</tbody>
-</table>
-<h2>More Information</h2>
-<ul>
-<li><a href="http://www.unidata.ucar.edu/software/netcdf/workshops/2012/netcdf_python/netcdf4python.pdf">Really useful netCDF4 resource</a></li>
-<li><a href="http://www.unidata.ucar.edu/software/netcdf/docs/netcdf/NetCDF_002d4-Classic-Model-Format.html">Info about the "classic" file format</a></li>
-</ul>
+            <p>I attended the MPOWIR <a href="http://mpowir.org/get-involved/pattullo/">Pattullo Conference</a> last October, which helped teach me about many aspects of a career in academics that I need to know to be successful. It was also a chance to meet Jr. and Sr. Scientists and get a chance to ask questions of Sr. Scientists that normally I wouldn't be able to ask (e.g., how many hours a week do you work? When did you start feeling confident in your work?). Through the NSF-funded MPOWIR organization, I have also joined a mentorship group that meets via phone monthly. Additionally, I applied for the MPOWIR <a href="http://mpowir.org/get-involved/nasa-speaker-series/">NASA Speaker Series</a> and was selected to visit the NASA Goddard campus in Greenbelt, MD.</p>
+<p>I just returned from visiting Goddard on May 28th and 29th. It was a great visit! <a href="http://science.gsfc.nasa.gov/sed/index.cfm?fuseAction=people.jumpBio&amp;iPhonebookId=12925">Sirpa Hakkinen</a> was my host at Goddard and Sarah Clem of the MPOWIR organization set up my trip. I gave a <a href="http://pong.tamu.edu/~kthyng/presentations/nasa.pdf">talk</a> in the <a href="http://neptune.gsfc.nasa.gov/csb/">Cryosphere group</a> that was attended by scientists from several different groups. After my talk, I met with several researchers in the Cryosphere group, and the following day, I visited the <a href="http://neptune.gsfc.nasa.gov/osb/">Ocean Ecology group</a>. It was a great opportunity to learn about research outside of my current work areas, and to start thinking about how to bring remote sensing into my array of tools.</p>
             </article>
             <br><br>
                             <section id="article-list">
                     <h2>Older posts:</h2>
                     <ul>
                                     
+
+                 
+            <li><a href="http://www.kristenthyng.com/blog/2014/03/29/python+netcdf4/" rel="bookmark" title="Permalink to Testing netCDF Formats in Python">Testing netCDF Formats in Python</a> - <time datetime="2014-03-29T10:00:00">Mar 29, 2014</time> <br><br>
+            <p>Best options for netCDF4 with Python</p><br></li>
+                
 
                  
             <li><a href="http://www.kristenthyng.com/blog/2013/11/26/using-taskset/" rel="bookmark" title="Permalink to Using Taskset">Using Taskset</a> - <time datetime="2013-11-26T17:00:00">Nov 26, 2013</time> <br><br>
