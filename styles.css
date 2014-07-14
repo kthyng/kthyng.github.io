@@ -82,8 +82,8 @@ h2, h3 {
 }
 .box {
 	float:left;
-	width:25%;
-	padding:0 35px;
+	width:30%;
+	padding:0 8px;
 }
 .maincontent {
 	float:left;
