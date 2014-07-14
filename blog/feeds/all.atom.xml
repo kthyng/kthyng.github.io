@@ -85,7 +85,6 @@ for each process PID&lt;/li&gt;
 &lt;br&gt;&lt;br&gt;
 There was a plotting competition as part of the conference, the John Hunter Excellence in Plotting competition. I submitted a figure from my research and got second place! A gallery of the entries is &lt;a href="http://conference.scipy.org/jhepc2013/index.html"&gt;available online&lt;/a&gt;. As part of being ranked highly in the competition, I got to sit on the stage at the conference and participate in a panel on visualization practices.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://conference.scipy.org/jhepc2013/2013/entry10/index.html"&gt;&lt;img src="/blog/static/images/tkemax.jpg" class="picFloat" width="48%"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Alt text" src="/blog/static/images/tkemax.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;2nd Place Entry&lt;/p&gt;
 &lt;p&gt;&lt;a class="embedly-card" href="http://pyvideo.org/video/2008/scipy-2013-john-hunter-excellence-in-plotting-con"&gt;pyvideo.org - SciPy 2013 John Hunter Excellence in Plotting Contest&lt;/a&gt;
 &lt;script&gt;(function(a){var b="embedly-platform",c="script";if(!a.getElementById(b)){var d=a.createElement(c);d.id=b;d.async=true;d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}})(document);&lt;/script&gt;&lt;/p&gt;
