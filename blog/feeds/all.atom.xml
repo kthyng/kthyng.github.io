@@ -7,7 +7,7 @@
 &lt;p&gt;The plots I like the most that I made are &lt;/p&gt;
 &lt;!-- [plot](/blog/static/images/colormaps/lightness_00.png) --&gt;
 
-&lt;p&gt;&lt;a href="http://matplotlib.org/users/plotting/colormaps/lightness_00.png"&gt;&lt;img src="/blog/static/images/colormaps/lightness_00.png" class="picFloat" width="100%"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://matplotlib.org/users/plotting/colormaps/lightness_00.png"&gt;&lt;img src="/blog/static/images/colormaps/lightness_00.png" class="picFloat" width="60%"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;!-- [&lt;img src="/blog/static/images/2008-06-24T00.png" class="picFloat" width="100%"&gt;](https://conference.scipy.org/scipy2014/participate/plotting_contest/)
  --&gt;</summary><category term="Python"></category><category term="matplotlib"></category><category term="colormaps"></category></entry><entry><title>SciPy 2014 Colormap Talk</title><link href="http://www.kristenthyng.com/blog/2014/07/10/scipy-2014-colormap-talk/" rel="alternate"></link><updated>2014-07-10T16:00:00-05:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com/blog,2014-07-10:2014/07/10/scipy-2014-colormap-talk/</id><summary type="html">&lt;p&gt;I gave two talks at the &lt;a href="https://conference.scipy.org/scipy2014/"&gt;SciPy conference&lt;/a&gt;: &lt;a href="http://kristenthyng.com/blog/2014/07/10/scipy-2014-tracpy-talk/"&gt;one&lt;/a&gt; on my particle tracking wrapper code, &lt;a href="https://github.com/kthyng/tracpy"&gt;TracPy&lt;/a&gt;, and another on people's perceptions of &lt;a href="http://matplotlib.org"&gt;matplotlib&lt;/a&gt; colormaps.
 &lt;br&gt;&lt;br&gt;
