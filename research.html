@@ -73,7 +73,7 @@ Released for free under a Creative Commons Attribution 3.0 License
         <div class="maincontent">
             <a name="tracpy"/><h3>Particle Tracking</h3></a>
             <p>
-                <a href="http://pong.tamu.edu/~kthyng/movies/drifter_movie.mp4"><img src="images/drifters_2008-07-20T00.jpg" class="picFloat" width="40%"></a>
+                <img src="http://pong.tamu.edu/~kthyng/movies/txla_drifters/2008-07-18T00.png" class="picFloat" width="40%">
                 As part of the <a href="http://gisr.tamu.edu">Gulf Integrated Spill Research (GISR)</a> consortium, we have wrapped the particle tracking code <a href="http://tracmass.org">TRACMASS</a> in Python to make it easy to utilize with our model output, and by other researchers. We call this wrapped code system <a href="https://github.com/kthyng/tracpy">TracPy</a>.<br><br>
 
                 TRACMASS steps drifters forward natively on a staggered and structured numerical grid. Because the algorithm conserves mass, the drifters can be used to represent the transport of water parcels or other materials.<br><br>
@@ -84,9 +84,9 @@ Released for free under a Creative Commons Attribution 3.0 License
             </p>
         </div>
         <div class="maincontent">
-            <a name="connectivity"/><h3>Shelf Connectivity</h3></a>
+            <a name="connectivity"/><h3>Shelf Transport</h3></a>
             <p>
-                <img src="images/shelfhistcontour_25days.png" class="picFloat" width="40%">
+                <img src="images/seasonal100.png" class="picFloat" width="40%">
                 What material can reach the Texas-Louisiana shelf from off-shore to potentially impact the coastline, or from near-shore to exit toward the deep Gulf of Mexico, is controlled by whether it can cross the shelf. Therefore, understanding more about the processes that control this crossing and connectivity between areas can tell us about the areas of largest potential impact from an oil spill, for example. <br><br>
 
                 Using drifter tracks run in TracPy, we are examining this connectivity in space as well as in time to understand the areas of large and small cross-shelf transport and how they change seasonally and inter-annually.
@@ -95,7 +95,7 @@ Released for free under a Creative Commons Attribution 3.0 License
         <div class="maincontent">
             <a name="statistics"/><h3>Shelf Dispersion Statistics</h3></a>
             <p>
-                <img src="images/relative_diffusion_comp.pdf" class="picFloat" width="40%">
+                <img src="images/dispersion-summer.png" class="picFloat" width="40%">
                 By combining the information together from many numerical drifter tracks, we can understand a system from a perspective that is oriented toward transport specifically. Metrics run on these drifters, such as absolute and relative dispersion and the finite scale Lyapunov exponent, can help us infer many attributes of the flow fields that can be difficult to assess otherwise, such as the nature of the turbulence.
             </p>
         </div>
@@ -119,6 +119,15 @@ Released for free under a Creative Commons Attribution 3.0 License
             </p>
         </div>
         <div class="maincontent">
+            <a name="coastal"/><h3>Coastal Connectivity</h3></a>
+            <p>
+                <img src="images/seasonal-portaransas.png" class="picFloat" width="40%">
+                
+                Numerical drifters are being used to study potential spill impacts to the coastline. We can find the regions along the coastline that are most vulnerable to material transport from the shelf. Additionally, for a given region like Port Aransas, we can use this method to study where material can originate and hit the particular coastline area, which area along the coast is most likely to be hit, and how this changes at different times of the year under the seasonal patterns of the major forcing mechanisms in the area, the wind and river plume.
+
+            </p>
+        </div>
+<!--         <div class="maincontent">
             <a name="drifters"/><h3>Drifter Monitoring</h3></a>
             <p>
                 <img src="http://pong.tamu.edu/~kthyng/drifters/drifters.png" class="picFloat" width="40%">
@@ -129,7 +138,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 
             </p>
         </div>
-        <div class="maincontent">
+ -->        <div class="maincontent">
             <a name="vorticity"/><h3>Headland-Generated Tidal Vorticity</h3></a>
             <p>
                 <img src="images/vort447.png" class="picFloat" width="40%">
@@ -202,7 +211,7 @@ Released for free under a Creative Commons Attribution 3.0 License
                 <li><a href="#statistics">Shelf Dispersion Statistics</a></li>
                 <li><a href="#HAB">Harmful Algal Bloom Modeling</a></li>
                 <li><a href="#txla">TX-LA Shelf Modeling</a></li>
-                <li><a href="#drifters">Drifter Monitoring</a></li>
+                <li><a href="#coastal">Drifter Monitoring</a></li>
                 <li><a href="#vorticity">Headland-Generated Tidal Vorticity</a></li>
                 <li><a href="#turbulence">Turbulence Modeling</a></li>
                 <li><a href="#tidal">Tidal Hydrokinetic Energy</a></li>
