@@ -7,10 +7,10 @@ As far as I understand, one of the main pain points for getting this all to work
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
 With about 10 students in the class, it was annoying but not too hard to setup an account on the workstation for each of them. I used their student email nickname for their login, and made them part of a group so that I can use the group name for adding permissions and deleting them after the term is over. I chose their passwords for them since I wanted to be sure they had strong passwords. I am keeping track of them on my own (I use &lt;a href="https://1password.com/"&gt;1password&lt;/a&gt; to keep track of all this sort of thing, as well as generating passwords), and I read somewhere that sending someone a link to a public dropbox file is a relatively secure way to send information, so I made a file for each of them with their username and password and emailed it off.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo groupadd pythonfall2016  # create group
-# home directory is on a separate drive on this workstation
-sudo useradd -G pythonfall2016 -d /d2/home/student_username_here student_username_here
-sudo passwd username  # give them each a good password
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo groupadd pythonfall2016  # create group
+    # home directory is on a separate drive on this workstation
+    sudo useradd -G pythonfall2016 -d /d2/home/student_username_here student_username_here
+    sudo passwd username  # give them each a good password
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -22,43 +22,43 @@ I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authentica
 &lt;h1&gt;nbgrader&lt;/h1&gt;
 &lt;h2&gt;nbgrader_config file&lt;/h2&gt;
 &lt;p&gt;This is what I needed in my course ngrader_config.py file to get things to work. I triangulated between what is in the &lt;a href="https://nbgrader.readthedocs.io/en/stable/"&gt;nbgrader docs&lt;/a&gt; and what I found on various google groups discussions and some github links I stumbled across.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;c = get_config()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    c = get_config()
 
-# You only need this if you are running nbgrader on a shared
-# server set up.
-c.NbGrader.course_id = &amp;quot;course_name&amp;quot;
+    # You only need this if you are running nbgrader on a shared
+    # server set up.
+    c.NbGrader.course_id = &amp;quot;course_name&amp;quot;
 
-# Update this list with other assignments you want
-c.NbGrader.db_assignments = [dict(name=&amp;quot;hw1&amp;quot;)]
+    # Update this list with other assignments you want
+    c.NbGrader.db_assignments = [dict(name=&amp;quot;hw1&amp;quot;)]
 
-# Change the students in this list with that actual students in
-# your course
-c.NbGrader.db_students = [
-    dict(id=&amp;quot;pythontest&amp;quot;, first_name=&amp;quot;P&amp;quot;, last_name=&amp;quot;pythontest&amp;quot;)
-]
+    # Change the students in this list with that actual students in
+    # your course
+    c.NbGrader.db_students = [
+        dict(id=&amp;quot;pythontest&amp;quot;, first_name=&amp;quot;P&amp;quot;, last_name=&amp;quot;pythontest&amp;quot;)
+    ]
 
-#------------------------------------------------------------------------------
-# FormgradeApp configuration
-#------------------------------------------------------------------------------
+    #------------------------------------------------------------------------------
+    # FormgradeApp configuration
+    #------------------------------------------------------------------------------
 
-# IP address for the server
-c.FormgradeApp.ip = &amp;quot;127.0.0.1&amp;quot;
-# Port for the server
-c.FormgradeApp.port = 5000
-# Authenticator used in all formgrade requests.
-c.FormgradeApp.authenticator_class = &amp;quot;nbgrader.auth.hubauth.HubAuth&amp;quot;
+    # IP address for the server
+    c.FormgradeApp.ip = &amp;quot;127.0.0.1&amp;quot;
+    # Port for the server
+    c.FormgradeApp.port = 5000
+    # Authenticator used in all formgrade requests.
+    c.FormgradeApp.authenticator_class = &amp;quot;nbgrader.auth.hubauth.HubAuth&amp;quot;
 
-# from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew
-# for running with https
-# this line made it so the page was rendered nicely and actually connected
-# to the class database properly (instead of the localhost)
-c.HubAuth.hub_base_url = &amp;quot;https://copano.tamu.edu:8000&amp;quot;
-c.HubAuth.notebook_url_prefix = &amp;quot;course_name&amp;quot;
-c.HubAuth.graders = [&amp;quot;my_user_name&amp;quot;]
+    # from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew
+    # for running with https
+    # this line made it so the page was rendered nicely and actually connected
+    # to the class database properly (instead of the localhost)
+    c.HubAuth.hub_base_url = &amp;quot;https://copano.tamu.edu:8000&amp;quot;
+    c.HubAuth.notebook_url_prefix = &amp;quot;course_name&amp;quot;
+    c.HubAuth.graders = [&amp;quot;my_user_name&amp;quot;]
 
-# The nbgrader exchange directory writable to everyone. MUST be preexisting.
-# this is the default location for the exchange directory
-c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
+    # The nbgrader exchange directory writable to everyone. MUST be preexisting.
+    # this is the default location for the exchange directory
+    c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -66,15 +66,15 @@ c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
 &lt;h2&gt;getting the authorization token setup for using formgrader&lt;/h2&gt;
 &lt;p&gt;This has ended up being rather kludgey and I am sure there is a better way, but we ended up needing to change users to &lt;code&gt;jupyter&lt;/code&gt;, the user that owns our JupyterHub server, in order to generate the necessary authentication token so that the nbgrader formgrade command would work, but generate the token in my username as the one who is actually authenticated to grade within the system. More information can be found from research scientist &lt;a href="http://pong.tamu.edu/~baum/jupyter.html#_the_quick_and_easy_way_to_start_and_use_nbgrader_and_formgrader"&gt;Steve Baum&lt;/a&gt;. Here is what we do:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo -i -u jupyter
-[password]
-export JPY_API_TOKEN=$(/usr/local/bin/jupyterhub token --db=sqlite:////etc/jupyterhub/jupyterhub.sqlite -f /etc/jupyterhub/jupyterhub_config.py my_user_name)
-env | grep JPY
-JPY_API_TOKEN=[token]
-exit
-# Stick these into my .bash_profile
-export CONFIGPROXY_AUTH_TOKEN=&amp;#39;[token goes here]’
-export JPY_API_TOKEN=[other token from jupyterhub setup]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo -i -u jupyter
+    [password]
+    export JPY_API_TOKEN=$(/usr/local/bin/jupyterhub token --db=sqlite:////etc/jupyterhub/jupyterhub.sqlite -f /etc/jupyterhub/jupyterhub_config.py my_user_name)
+    env | grep JPY
+    JPY_API_TOKEN=[token]
+    exit
+    # Stick these into my .bash_profile
+    export CONFIGPROXY_AUTH_TOKEN=&amp;#39;[token goes here]’
+    export JPY_API_TOKEN=[other token from jupyterhub setup]
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -89,7 +89,7 @@ export JPY_API_TOKEN=[other token from jupyterhub setup]
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;I made the directory and then made it read and writeable by everyone with:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chmod ugo+rw /srv/nbgrader/exchange
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    chmod ugo+rw /srv/nbgrader/exchange
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -98,16 +98,16 @@ I installed the nbgrader extension, but did it separately for me and for the stu
 &lt;br&gt;&lt;br&gt;
 For me as grader and assignment-maker:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader extension install --symlink --user
-nbgrader extension activate
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader extension install --symlink --user
+    nbgrader extension activate
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
 For students:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader extension install assignment_list --user
-nbgrader extension activate assignment_list
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader extension install assignment_list --user
+    nbgrader extension activate assignment_list
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -117,7 +117,7 @@ Now we want to actually do the assignments. Here is my summary of the steps, bas
 &lt;h2&gt;Instructor end&lt;/h2&gt;
 &lt;p&gt;Start your course directory within your &lt;code&gt;notebooks&lt;/code&gt; directory, or wherever is the landing pad for JupyterHub within your directory. I'll use &lt;code&gt;oncg669&lt;/code&gt; as my course id and name.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader quickstart ocng669
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader quickstart ocng669
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -127,10 +127,11 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 &lt;ol&gt;
 &lt;li&gt;Make your homework assignment following the examples. The examples were plenty helpful for me to follow.
 &lt;br&gt;&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Assign the homework, using the nice header that is included in the directory:
-&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;nbgrader assign hw1 --IncludeHeaderFooter.header=source/header.ipynb&lt;/p&gt;
+&lt;li&gt;Assign the homework, using the nice header that is included in the directory:
+&lt;br&gt;&lt;br&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader assign hw1 --IncludeHeaderFooter.header=source/header.ipynb
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
