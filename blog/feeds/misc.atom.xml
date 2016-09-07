@@ -15,47 +15,59 @@ sudo passwd username  # give them each a good password
 
 
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
-I had to log into each account to set up a "notebooks" directory, which is where JupyterHub was setup to start. (This is controlled in your JuyterHub config file jupyterhub_config.py by the variable c.Spawner.notebook_dir = '~/notebooks'.)&lt;/p&gt;
-&lt;p&gt;I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authenticated list in jupyterhub_config.py so they would be able to log in: c.LocalAuthenticator.group_whitelist = {'pythonfall2016'}.&lt;/p&gt;
+I had to log into each account to set up a "notebooks" directory, which is where JupyterHub was setup to start. (This is controlled in your JuyterHub config file jupyterhub_config.py by the variable c.Spawner.notebook_dir = '~/notebooks'.)
+&lt;br&gt;&lt;br&gt;
+I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authenticated list in jupyterhub_config.py so they would be able to log in: c.LocalAuthenticator.group_whitelist = {'pythonfall2016'}.
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;nbgrader&lt;/h1&gt;
 &lt;h2&gt;nbgrader_config file&lt;/h2&gt;
-&lt;p&gt;c = get_config()&lt;/p&gt;
-&lt;p&gt;# You only need this if you are running nbgrader on a shared
-  # server set up.
-  c.NbGrader.course_id = "ocng669"&lt;/p&gt;
-&lt;p&gt;# Update this list with other assignments you want
-  c.NbGrader.db_assignments = [dict(name="hw1")]&lt;/p&gt;
-&lt;p&gt;# Change the students in this list with that actual students in
-  # your course
-  c.NbGrader.db_students = [
-      dict(id="pythontest", first_name="P", last_name="pythontest"),
-      dict(id="ritvik", first_name="Ritvik", last_name="Dhupkar"),
-      dict(id="fiorenja", first_name="James", last_name="Fiorendino"),
-      dict(id="son536", first_name="Woongrak", last_name="Son"),
-      dict(id="shailavi", first_name="Lu", last_name="Sun"),
-      dict(id="sthapa", first_name="Shubhechchha", last_name="Thapa"),
-      dict(id="aeburgess", first_name=", Allyson", last_name="Lucchese"),
-      dict(id="fay155", first_name="Amanda", last_name="Sterne")
-  ]&lt;/p&gt;
-&lt;p&gt;#------------------------------------------------------------------------------
-  # FormgradeApp configuration
-  #------------------------------------------------------------------------------&lt;/p&gt;
-&lt;p&gt;# IP address for the server
-  c.FormgradeApp.ip = "127.0.0.1"
-  # Port for the server
-  c.FormgradeApp.port = 5000 # 9000
-  # Authenticator used in all formgrade requests.
-  c.FormgradeApp.authenticator_class = "nbgrader.auth.hubauth.HubAuth"&lt;/p&gt;
-&lt;p&gt;# from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew
-  # for running with https
-  # this line made it so the page was rendered nicely and actually conntected
-  # to the class database properly (instead of the localhost)
-  c.HubAuth.hub_base_url = "https://copano.tamu.edu:8000"
-  c.HubAuth.notebook_url_prefix = "ocng669"
-  c.HubAuth.graders = ["kthyng"]&lt;/p&gt;
-&lt;p&gt;# The nbgrader exchange directory writable to everyone. MUST be preexisting.
-  # this is the default location for the exchange directory
-  c.TransferApp.exchange_directory = '/srv/nbgrader/exchange'&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;c = get_config()
+
+# You only need this if you are running nbgrader on a shared
+# server set up.
+c.NbGrader.course_id = &amp;quot;ocng669&amp;quot;
+
+# Update this list with other assignments you want
+c.NbGrader.db_assignments = [dict(name=&amp;quot;hw1&amp;quot;)]
+
+# Change the students in this list with that actual students in
+# your course
+c.NbGrader.db_students = [
+    dict(id=&amp;quot;pythontest&amp;quot;, first_name=&amp;quot;P&amp;quot;, last_name=&amp;quot;pythontest&amp;quot;),
+    dict(id=&amp;quot;ritvik&amp;quot;, first_name=&amp;quot;Ritvik&amp;quot;, last_name=&amp;quot;Dhupkar&amp;quot;),
+    dict(id=&amp;quot;fiorenja&amp;quot;, first_name=&amp;quot;James&amp;quot;, last_name=&amp;quot;Fiorendino&amp;quot;),
+    dict(id=&amp;quot;son536&amp;quot;, first_name=&amp;quot;Woongrak&amp;quot;, last_name=&amp;quot;Son&amp;quot;),
+    dict(id=&amp;quot;shailavi&amp;quot;, first_name=&amp;quot;Lu&amp;quot;, last_name=&amp;quot;Sun&amp;quot;),
+    dict(id=&amp;quot;sthapa&amp;quot;, first_name=&amp;quot;Shubhechchha&amp;quot;, last_name=&amp;quot;Thapa&amp;quot;),
+    dict(id=&amp;quot;aeburgess&amp;quot;, first_name=&amp;quot;, Allyson&amp;quot;, last_name=&amp;quot;Lucchese&amp;quot;),
+    dict(id=&amp;quot;fay155&amp;quot;, first_name=&amp;quot;Amanda&amp;quot;, last_name=&amp;quot;Sterne&amp;quot;)
+]
+
+#------------------------------------------------------------------------------
+# FormgradeApp configuration
+#------------------------------------------------------------------------------
+
+# IP address for the server
+c.FormgradeApp.ip = &amp;quot;127.0.0.1&amp;quot;
+# Port for the server
+c.FormgradeApp.port = 5000 # 9000
+# Authenticator used in all formgrade requests.
+c.FormgradeApp.authenticator_class = &amp;quot;nbgrader.auth.hubauth.HubAuth&amp;quot;
+
+# from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew
+# for running with https
+# this line made it so the page was rendered nicely and actually conntected
+# to the class database properly (instead of the localhost)
+c.HubAuth.hub_base_url = &amp;quot;https://copano.tamu.edu:8000&amp;quot;
+c.HubAuth.notebook_url_prefix = &amp;quot;ocng669&amp;quot;
+c.HubAuth.graders = [&amp;quot;kthyng&amp;quot;]
+
+# The nbgrader exchange directory writable to everyone. MUST be preexisting.
+# this is the default location for the exchange directory
+c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;getting the authorization token setup&lt;/h2&gt;
 &lt;h2&gt;Instructor end&lt;/h2&gt;
 &lt;h2&gt;Student end&lt;/h2&gt;
