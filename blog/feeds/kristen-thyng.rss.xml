@@ -21,6 +21,7 @@ I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authentica
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;nbgrader&lt;/h1&gt;
 &lt;h2&gt;nbgrader_config file&lt;/h2&gt;
+&lt;p&gt;This is what I needed in my course ngrader_config.py file to get things to work. I triangulated between what is in the &lt;a href="https://nbgrader.readthedocs.io/en/stable/"&gt;nbgrader docs&lt;/a&gt; and what I found on various google groups discussions and some github links I stumbled across.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;c = get_config()
 
 # You only need this if you are running nbgrader on a shared
@@ -61,9 +62,80 @@ c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;getting the authorization token setup&lt;/h2&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2&gt;getting the authorization token setup for using formgrader&lt;/h2&gt;
+&lt;p&gt;This has ended up being rather kludgey and I am sure there is a better way, but we ended up needing to change users to &lt;code&gt;jupyter&lt;/code&gt;, the user that owns our JupyterHub server, in order to generate the necessary authentication token so that the nbgrader formgrade command would work, but generate the token in my username as the one who is actually authenticated to grade within the system. More information can be found from research scientist &lt;a href="http://pong.tamu.edu/~baum/jupyter.html#_the_quick_and_easy_way_to_start_and_use_nbgrader_and_formgrader"&gt;Steve Baum&lt;/a&gt;. Here is what we do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo -i -u jupyter
+[password]
+export JPY_API_TOKEN=$(/usr/local/bin/jupyterhub token --db=sqlite:////etc/jupyterhub/jupyterhub.sqlite -f /etc/jupyterhub/jupyterhub_config.py my_user_name)
+env | grep JPY
+JPY_API_TOKEN=[token]
+exit
+# Stick these into my .bash_profile
+export CONFIGPROXY_AUTH_TOKEN=&amp;#39;[token goes here]’
+export JPY_API_TOKEN=[other token from jupyterhub setup]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;A little more setup&lt;/h1&gt;
+&lt;p&gt;Note that the default exchange server is located at:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I made the directory and then made it read and writeable by everyone with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chmod ugo+rw /srv/nbgrader/exchange
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I installed the nbgrader extension, but did it separately for me and for the students so that I would get both the &lt;code&gt;Assignments&lt;/code&gt; tab and the ability to choose &lt;code&gt;Create Assignment&lt;/code&gt; in my notebooks, but the students will only gain the &lt;code&gt;Assignments&lt;/code&gt; tab.&lt;/p&gt;
+&lt;p&gt;For me as grader and assignment-maker:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader extension install --symlink --user
+nbgrader extension activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For students:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader extension install assignment_list --user
+nbgrader extension activate assignment_list
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we want to actually do the assignments. Here is my summary of the steps, based on the &lt;a href="https://nbgrader.readthedocs.io/en/stable/"&gt;nbgrader docs&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Instructor end&lt;/h2&gt;
+&lt;p&gt;Start your course directory within your &lt;code&gt;notebooks&lt;/code&gt; directory, or wherever is the landing pad for JupyterHub within your directory. I'll use &lt;code&gt;oncg669&lt;/code&gt; as my course id and name.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader quickstart ocng669
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This creates a directory with the basic stuff you need in it. All other nbgrader commands will need to happen inside this course directory.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Make your homework assignment following the examples. The examples were plenty helpful for me to follow.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Assign the homework, using the nice header that is included in the directory:&lt;/p&gt;
+&lt;p&gt;nbgrader assign hw1 --IncludeHeaderFooter.header=source/header.ipynb&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Inspect the release folder (release/hw1) to make sure it looks right.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Release the assignment to the students, so they can actually access it:&lt;/p&gt;
+&lt;p&gt;nbgrader release hw1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure it has gone out ok:&lt;/p&gt;
+&lt;p&gt;nbgrader list&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2&gt;Student end&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the &lt;code&gt;Assignments&lt;/code&gt; tab, and clicking on the blue button to &lt;code&gt;Fetch&lt;/code&gt; the assignment.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+&lt;img alt="Alt text" src="images/Assignments.png" /&gt;
+&lt;!-- &lt;img alt="&amp;lt;img src=&amp;quot;images/Assignments.png&amp;quot; class=&amp;quot;picFloat&amp;quot; width=&amp;quot;50%&amp;quot;&amp;gt;" src="http://matplotlib.org/cmocean/" /&gt; --&gt;
+&lt;!-- &lt;img src="/blog/static/images/hab/hab-index-september.png" class="picFloat" width="100%"&gt; --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Instructor end&lt;/h2&gt;
 &lt;h2&gt;Student end&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Kristen Thyng</dc:creator><pubDate>Wed, 07 Sep 2016 11:00:00 -0500</pubDate><guid isPermaLink="false">tag:www.kristenthyng.com,2016-09-07:blog/2016/09/07/jupyterhub+nbgrader/</guid><category>python</category><category>jupyter</category><category>teaching</category></item><item><title>Published paper!</title><link>http://www.kristenthyng.com/blog/2016/08/29/colormaps_paper/</link><description>&lt;p&gt;My new paper is now &lt;a href="http://tos.org/oceanography/assets/docs/29-3_thyng.pdf"&gt;published&lt;/a&gt; on colormaps in oceanography! I wrote it with Chad Greene at UT, and Rob Hetland, Heather Zimmerle, and Steve DiMarco at Texas A&amp;amp;M in my department. In it, we discuss guidelines for choosing good colormaps to properly show your data, and present a suite of colormaps to help you do so.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Kristen Thyng</dc:creator><pubDate>Mon, 29 Aug 2016 21:00:00 -0500</pubDate><guid isPermaLink="false">tag:www.kristenthyng.com,2016-08-29:blog/2016/08/29/colormaps_paper/</guid><category>paper</category><category>oceanography</category><category>colormaps</category></item><item><title>Published paper!</title><link>http://www.kristenthyng.com/blog/2016/07/25/tcy_paper/</link><description>&lt;p&gt;A paper that I contributed to is now &lt;a href="http://www.sciencedirect.com/science/article/pii/S0025326X16303964"&gt;available&lt;/a&gt;! I modeled the Texas City "Y" oil spill, which occurred in Galveston Bay – near the Texas City "Y" – in March 2014, as part of an effort with researchers at UTMSI to better understand the spill. It was a great interdisciplinary effort!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Kristen Thyng</dc:creator><pubDate>Mon, 25 Jul 2016 14:00:00 -0500</pubDate><guid isPermaLink="false">tag:www.kristenthyng.com,2016-07-25:blog/2016/07/25/tcy_paper/</guid><category>paper</category><category>oceanography</category><category>oil spill</category></item><item><title>cmocean on PyPI</title><link>http://www.kristenthyng.com/blog/2016/06/02/cmocean_pypi/</link><description>&lt;p&gt;After a hiatus of technical difficulties, the cmocean package of colormaps for oceanography are once again available on PyPI. Simple installation:
 &lt;br&gt;&lt;br&gt;
