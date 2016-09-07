@@ -210,7 +210,8 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 <br><br>
 <img src="images/jupyterhub+nbgrader/Assignments_fetch.jpg" class="picFloat" width="100%">
 <br><br></p>
-<p>After they have fetched the assignment, it will appear under <code>Downloaded assignments</code>. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.</p>
+<p>After they have fetched the assignment, it will appear under <code>Downloaded assignments</code>. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.
+<br><br></p>
 <div class="highlight"><pre><span></span>- they can run the cells;
 - they delete the exception where it says to enter their code, and then enter their code;
 - after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn&#39;t;
@@ -238,38 +239,37 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 <br><br>
                nbgrader autograde hw1
 <br><br></li>
-<li>Manual grading. To grade the assignments with an HTML form (assuming you got all the linking done properly), all we have to do is run the following and then see it at the link: https://copano.tamu.edu:8000/hub/nbgrader/ocng669. This is a really slick system for taking the pain out of any necessary manual grading.
+<li>Manual grading. To grade the assignments with an HTML form (assuming you got all the linking done properly), all we have to do is run the following and then see it at the link: https://copano.tamu.edu:8000/hub/nbgrader/ocng669. This is a really slick system for taking the pain out of any necessary manual grading. Some snapshots of what formgrade looks like in practice are shown below.
 <br><br>
                nbgrader formgrade
 <br><br></li>
-<li>
-<p>feedback: After assignments have been autograded and/or manually graded, they will located in the auto graded directory, and after feedback step: HTML versions of these notebooks will be saved to: feedback/{student_id}/{assignment_id}/{notebook_id}.html. This is accessible only by me because I am listed as a grader and need to be authenticated through JupyterHub.</p>
-<div class="highlight"><pre><span></span>       nbgrader feedback hw1
-</pre></div>
-
-
-</li>
-<li>
-<p>Then you have to actually get the code to the students. I found a script Jess wrote to copy the feedback over to a student’s directory (found the script from here). I have edited it because apparently the file structure in nbgrader changed since she wrote it, and I have a copy in notebooks/ocng669. I run in from that directory with:</p>
-<div class="highlight"><pre><span></span>       sudo python3 return_feedback.py hw1 --student pythontest
-
-  where I fixed the file structure so far but only by inputting a student name. I will need to change this to make it easier to use.
-</pre></div>
-
-
-</li>
+<li>feedback: After assignments have been autograded and/or manually graded, they will located in the auto graded directory, and after feedback step: HTML versions of these notebooks will be saved to: feedback/{student_id}/{assignment_id}/{notebook_id}.html.
+<br><br>
+               nbgrader feedback hw1
+<br><br></li>
+<li>The feedback is accessible only by me at this point. There is not a built-in way to get the feedback to where the students can access it, but here is how I am doing it. I found a <a href="https://gist.github.com/jhamrick/2ad63d7226b64c0a95fa">script</a> that <a href="http://www.jesshamrick.com/">Jess Hamrick</a>, main author of nbgrader, wrote to copy the feedback over to a student’s directory. I have edited it because apparently the file structure in nbgrader changed since she wrote it. I run in from that directory with:
+<br><br>
+               sudo python3 return_feedback.py hw1
+<br><br>
+and for a particular student, <code>pythontest</code>:
+<br><br>
+               sudo python3 return_feedback.py hw1 --student pythontest
+<br><br>
+The <code>sudo</code> is necessary because the script copies the feedback file structure over to the student's directory.
+<br><br>
+<script src="https://gist.github.com/kthyng/00fd1cd1e74730252fecb8a41bf0c4cc.js"></script></li>
 </ol>
-<p><br><br></p>
-<h3>formgrade Assignments</h3>
-<p><img src="images/jupyterhub+nbgrader/formgrade_assignments.jpg" class="picFloat" width="100%"></p>
-<h3>formgrade Assignments &gt; hw1</h3>
-<p><img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1.jpg" class="picFloat" width="100%"></p>
-<h3>formgrade Assignments &gt; hw1 &gt; partB</h3>
-<p><img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1_partb.jpg" class="picFloat" width="100%"></p>
-<h3>formgrade Students</h3>
-<p><img src="images/jupyterhub+nbgrader/formgrade_students.jpg" class="picFloat" width="100%"></p>
-<h3>formgrade notebook view</h3>
-<p><img src="images/jupyterhub+nbgrader/formgrade_notebookview.jpg" class="picFloat" width="100%">
+<p><br><br>
+<em>formgrade Assignments</em>
+<img src="images/jupyterhub+nbgrader/formgrade_assignments.jpg" class="picFloat" width="100%">
+<em>formgrade Assignments &gt; hw1</em>
+<img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1.jpg" class="picFloat" width="100%">
+<em>formgrade Assignments &gt; hw1 &gt; partB</em>
+<img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1_partb.jpg" class="picFloat" width="100%">
+<em>formgrade Students</em>
+<img src="images/jupyterhub+nbgrader/formgrade_students.jpg" class="picFloat" width="100%">
+<em>formgrade notebook view</em>
+<img src="images/jupyterhub+nbgrader/formgrade_notebookview.jpg" class="picFloat" width="100%">
 <br><br></p>
 <ul>
 <li>Then the files show up in their base directory in jupyterhub, notebooks, under a folder called “feedback”, then in the homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered, from:<div class="highlight"><pre><span></span>       https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html
