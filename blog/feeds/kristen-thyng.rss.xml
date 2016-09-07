@@ -23,43 +23,47 @@ I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authentica
 &lt;h2&gt;nbgrader_config file&lt;/h2&gt;
 &lt;p&gt;This is what I needed in my course ngrader_config.py file to get things to work. I triangulated between what is in the &lt;a href="https://nbgrader.readthedocs.io/en/stable/"&gt;nbgrader docs&lt;/a&gt; and what I found on various google groups discussions and some github links I stumbled across.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    c = get_config()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 
-    # You only need this if you are running nbgrader on a shared
-    # server set up.
-    c.NbGrader.course_id = &amp;quot;course_name&amp;quot;
+    &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_config&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
-    # Update this list with other assignments you want
-    c.NbGrader.db_assignments = [dict(name=&amp;quot;hw1&amp;quot;)]
+    &lt;span class="c1"&gt;# You only need this if you are running nbgrader on a shared&lt;/span&gt;
+    &lt;span class="c1"&gt;# server set up.&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NbGrader&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;course_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;course_name&amp;quot;&lt;/span&gt;
 
-    # Change the students in this list with that actual students in
-    # your course
-    c.NbGrader.db_students = [
-        dict(id=&amp;quot;pythontest&amp;quot;, first_name=&amp;quot;P&amp;quot;, last_name=&amp;quot;pythontest&amp;quot;)
-    ]
+    &lt;span class="c1"&gt;# Update this list with other assignments you want&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NbGrader&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;db_assignments&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;hw1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
 
-    #------------------------------------------------------------------------------
-    # FormgradeApp configuration
-    #------------------------------------------------------------------------------
+    &lt;span class="c1"&gt;# Change the students in this list with that actual students in&lt;/span&gt;
+    &lt;span class="c1"&gt;# your course&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NbGrader&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;db_students&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+        &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;pythontest&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;first_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;P&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;last_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;pythontest&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;]&lt;/span&gt;
 
-    # IP address for the server
-    c.FormgradeApp.ip = &amp;quot;127.0.0.1&amp;quot;
-    # Port for the server
-    c.FormgradeApp.port = 5000
-    # Authenticator used in all formgrade requests.
-    c.FormgradeApp.authenticator_class = &amp;quot;nbgrader.auth.hubauth.HubAuth&amp;quot;
+    &lt;span class="c1"&gt;#------------------------------------------------------------------------------&lt;/span&gt;
+    &lt;span class="c1"&gt;# FormgradeApp configuration&lt;/span&gt;
+    &lt;span class="c1"&gt;#------------------------------------------------------------------------------&lt;/span&gt;
 
-    # from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew
-    # for running with https
-    # this line made it so the page was rendered nicely and actually connected
-    # to the class database properly (instead of the localhost)
-    c.HubAuth.hub_base_url = &amp;quot;https://copano.tamu.edu:8000&amp;quot;
-    c.HubAuth.notebook_url_prefix = &amp;quot;course_name&amp;quot;
-    c.HubAuth.graders = [&amp;quot;my_user_name&amp;quot;]
+    &lt;span class="c1"&gt;# IP address for the server&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FormgradeApp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;
+    &lt;span class="c1"&gt;# Port for the server&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FormgradeApp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5000&lt;/span&gt;
+    &lt;span class="c1"&gt;# Authenticator used in all formgrade requests.&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FormgradeApp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;authenticator_class&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;nbgrader.auth.hubauth.HubAuth&amp;quot;&lt;/span&gt;
 
-    # The nbgrader exchange directory writable to everyone. MUST be preexisting.
-    # this is the default location for the exchange directory
-    c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
+    &lt;span class="c1"&gt;# from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew&lt;/span&gt;
+    &lt;span class="c1"&gt;# for running with https&lt;/span&gt;
+    &lt;span class="c1"&gt;# this line made it so the page was rendered nicely and actually connected&lt;/span&gt;
+    &lt;span class="c1"&gt;# to the class database properly (instead of the localhost)&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HubAuth&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hub_base_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;https://copano.tamu.edu:8000&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HubAuth&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;notebook_url_prefix&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;course_name&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HubAuth&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;graders&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;my_user_name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HubAuth&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hubapi_token&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;JPY_API_TOKEN&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+
+    &lt;span class="c1"&gt;# The nbgrader exchange directory writable to everyone. MUST be preexisting.&lt;/span&gt;
+    &lt;span class="c1"&gt;# this is the default location for the exchange directory&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TransferApp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exchange_directory&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/srv/nbgrader/exchange&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -145,15 +149,72 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Student end&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the &lt;code&gt;Assignments&lt;/code&gt; tab, and clicking on the blue button to &lt;code&gt;Fetch&lt;/code&gt; the assignment.&lt;/li&gt;
+&lt;li&gt;Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the &lt;code&gt;Assignments&lt;/code&gt; tab, and clicking on the blue button to &lt;code&gt;Fetch&lt;/code&gt; the assignment. In this case, I have two classes appearing with an assignment to be fetched.
+&lt;br&gt;&lt;br&gt;
+&lt;img src="images/jupyterhub+nbgrader/Assignments_fetch.jpg" class="picFloat" width="100%"&gt;
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;After they have fetched the assignment, it will appear under &lt;code&gt;Downloaded assignments&lt;/code&gt;. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.&lt;ul&gt;
+&lt;li&gt;they can run the cells;&lt;/li&gt;
+&lt;li&gt;they delete the exception where it says to enter their code, and then enter their code;&lt;/li&gt;
+&lt;li&gt;after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn't;&lt;/li&gt;
+&lt;li&gt;After finishing a notebook, they can go back to the server page and click to validate that notebook, which runs all of the test cells and states if there are any errors. They can do this as many times as they want;&lt;/li&gt;
+&lt;li&gt;The system will note when the assignment is submitted, so they need to turn it in on time.
+&lt;br&gt;&lt;br&gt;
+&lt;img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%"&gt;
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Submit! They can do so however many times they want and just the last one will be used for grading;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;
-&lt;!-- &lt;img alt="Alt text" src="images/jupyterhub+nbgrader/Assignments.png" /&gt; --&gt;
-&lt;!-- &lt;img alt="Alt text" src="kthyng.github.io/blog/images/jupyterhub+nbgrader/Assignments.png" /&gt; --&gt;
-&lt;img src="images/jupyterhub+nbgrader/Assignments.jpg" class="picFloat" width="100%"&gt;
-&lt;!-- &lt;img src="/blog/static/images/hab/hab-index-september.png" class="picFloat" width="100%"&gt; --&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Instructor end&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;After students have submitted their assignments, the instructor can view what has been submitted with
+&lt;br&gt;&lt;br&gt;
+               nbgrader list --inbound
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Collect all submitted assignments with the following — This will copy the student submissions to the submitted folder in a way that is automatically compatible with &lt;code&gt;nbgrader autograde&lt;/code&gt;
+&lt;br&gt;&lt;br&gt;
+               nbgrader collect hw1 --course ocng669
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Autograde. Note that after assignments have been autograded, they will saved into an autograded directory
+&lt;br&gt;&lt;br&gt;
+               nbgrader autograde hw1
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Manual grading. To grade the assignments with an HTML form (assuming you got all the linking done properly), all we have to do is run the following and then see it at the link: https://copano.tamu.edu:8000/hub/nbgrader/ocng669. This is a really slick system for taking the pain out of any necessary manual grading.
+&lt;br&gt;&lt;br&gt;
+               nbgrader formgrade
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;feedback: After assignments have been autograded and/or manually graded, they will located in the auto graded directory, and after feedback step: HTML versions of these notebooks will be saved to: feedback/{student_id}/{assignment_id}/{notebook_id}.html. This is accessible only by me because I am listed as a grader and need to be authenticated through JupyterHub.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;       nbgrader feedback hw1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then you have to actually get the code to the students. I found a script Jess wrote to copy the feedback over to a student’s directory (found the script from here). I have edited it because apparently the file structure in nbgrader changed since she wrote it, and I have a copy in notebooks/ocng669. I run in from that directory with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;       sudo python3 return_feedback.py hw1 --student pythontest
+
+  where I fixed the file structure so far but only by inputting a student name. I will need to change this to make it easier to use.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then the files show up in their base directory in jupyterhub, notebooks, under a folder called “feedback”, then in the homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered, from:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;       https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html
+
+  to:
+
+       https://copano.tamu.edu:8000/user/pythontest/files/feedback/hw1/partA.html
+
+   or, from “edit” to “files&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2&gt;Student end&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Kristen Thyng</dc:creator><pubDate>Wed, 07 Sep 2016 11:00:00 -0500</pubDate><guid isPermaLink="false">tag:www.kristenthyng.com,2016-09-07:blog/2016/09/07/jupyterhub+nbgrader/</guid><category>python</category><category>jupyter</category><category>teaching</category></item><item><title>Published paper!</title><link>http://www.kristenthyng.com/blog/2016/08/29/colormaps_paper/</link><description>&lt;p&gt;My new paper is now &lt;a href="http://tos.org/oceanography/assets/docs/29-3_thyng.pdf"&gt;published&lt;/a&gt; on colormaps in oceanography! I wrote it with Chad Greene at UT, and Rob Hetland, Heather Zimmerle, and Steve DiMarco at Texas A&amp;amp;M in my department. In it, we discuss guidelines for choosing good colormaps to properly show your data, and present a suite of colormaps to help you do so.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Kristen Thyng</dc:creator><pubDate>Mon, 29 Aug 2016 21:00:00 -0500</pubDate><guid isPermaLink="false">tag:www.kristenthyng.com,2016-08-29:blog/2016/08/29/colormaps_paper/</guid><category>paper</category><category>oceanography</category><category>colormaps</category></item><item><title>Published paper!</title><link>http://www.kristenthyng.com/blog/2016/07/25/tcy_paper/</link><description>&lt;p&gt;A paper that I contributed to is now &lt;a href="http://www.sciencedirect.com/science/article/pii/S0025326X16303964"&gt;available&lt;/a&gt;! I modeled the Texas City "Y" oil spill, which occurred in Galveston Bay – near the Texas City "Y" – in March 2014, as part of an effort with researchers at UTMSI to better understand the spill. It was a great interdisciplinary effort!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Kristen Thyng</dc:creator><pubDate>Mon, 25 Jul 2016 14:00:00 -0500</pubDate><guid isPermaLink="false">tag:www.kristenthyng.com,2016-07-25:blog/2016/07/25/tcy_paper/</guid><category>paper</category><category>oceanography</category><category>oil spill</category></item><item><title>cmocean on PyPI</title><link>http://www.kristenthyng.com/blog/2016/06/02/cmocean_pypi/</link><description>&lt;p&gt;After a hiatus of technical difficulties, the cmocean package of colormaps for oceanography are once again available on PyPI. Simple installation:
 &lt;br&gt;&lt;br&gt;
 pip install cmocean&lt;/p&gt;

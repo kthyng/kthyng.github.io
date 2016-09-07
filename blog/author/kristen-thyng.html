@@ -84,43 +84,47 @@ I then added the group <code>pythonfall2016</code> to the authenticated list in 
 <h2>nbgrader_config file</h2>
 <p>This is what I needed in my course ngrader_config.py file to get things to work. I triangulated between what is in the <a href="https://nbgrader.readthedocs.io/en/stable/">nbgrader docs</a> and what I found on various google groups discussions and some github links I stumbled across.
 <br><br></p>
-<div class="highlight"><pre><span></span>    c = get_config()
+<div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">os</span>
 
-    # You only need this if you are running nbgrader on a shared
-    # server set up.
-    c.NbGrader.course_id = &quot;course_name&quot;
+    <span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
 
-    # Update this list with other assignments you want
-    c.NbGrader.db_assignments = [dict(name=&quot;hw1&quot;)]
+    <span class="c1"># You only need this if you are running nbgrader on a shared</span>
+    <span class="c1"># server set up.</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">NbGrader</span><span class="o">.</span><span class="n">course_id</span> <span class="o">=</span> <span class="s2">&quot;course_name&quot;</span>
 
-    # Change the students in this list with that actual students in
-    # your course
-    c.NbGrader.db_students = [
-        dict(id=&quot;pythontest&quot;, first_name=&quot;P&quot;, last_name=&quot;pythontest&quot;)
-    ]
+    <span class="c1"># Update this list with other assignments you want</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">NbGrader</span><span class="o">.</span><span class="n">db_assignments</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hw1&quot;</span><span class="p">)]</span>
 
-    #------------------------------------------------------------------------------
-    # FormgradeApp configuration
-    #------------------------------------------------------------------------------
+    <span class="c1"># Change the students in this list with that actual students in</span>
+    <span class="c1"># your course</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">NbGrader</span><span class="o">.</span><span class="n">db_students</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">dict</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pythontest&quot;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;pythontest&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
 
-    # IP address for the server
-    c.FormgradeApp.ip = &quot;127.0.0.1&quot;
-    # Port for the server
-    c.FormgradeApp.port = 5000
-    # Authenticator used in all formgrade requests.
-    c.FormgradeApp.authenticator_class = &quot;nbgrader.auth.hubauth.HubAuth&quot;
+    <span class="c1">#------------------------------------------------------------------------------</span>
+    <span class="c1"># FormgradeApp configuration</span>
+    <span class="c1">#------------------------------------------------------------------------------</span>
 
-    # from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew
-    # for running with https
-    # this line made it so the page was rendered nicely and actually connected
-    # to the class database properly (instead of the localhost)
-    c.HubAuth.hub_base_url = &quot;https://copano.tamu.edu:8000&quot;
-    c.HubAuth.notebook_url_prefix = &quot;course_name&quot;
-    c.HubAuth.graders = [&quot;my_user_name&quot;]
+    <span class="c1"># IP address for the server</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">FormgradeApp</span><span class="o">.</span><span class="n">ip</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span>
+    <span class="c1"># Port for the server</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">FormgradeApp</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">5000</span>
+    <span class="c1"># Authenticator used in all formgrade requests.</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">FormgradeApp</span><span class="o">.</span><span class="n">authenticator_class</span> <span class="o">=</span> <span class="s2">&quot;nbgrader.auth.hubauth.HubAuth&quot;</span>
 
-    # The nbgrader exchange directory writable to everyone. MUST be preexisting.
-    # this is the default location for the exchange directory
-    c.TransferApp.exchange_directory = &#39;/srv/nbgrader/exchange&#39;
+    <span class="c1"># from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew</span>
+    <span class="c1"># for running with https</span>
+    <span class="c1"># this line made it so the page was rendered nicely and actually connected</span>
+    <span class="c1"># to the class database properly (instead of the localhost)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">HubAuth</span><span class="o">.</span><span class="n">hub_base_url</span> <span class="o">=</span> <span class="s2">&quot;https://copano.tamu.edu:8000&quot;</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">HubAuth</span><span class="o">.</span><span class="n">notebook_url_prefix</span> <span class="o">=</span> <span class="s2">&quot;course_name&quot;</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">HubAuth</span><span class="o">.</span><span class="n">graders</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;my_user_name&quot;</span><span class="p">]</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">HubAuth</span><span class="o">.</span><span class="n">hubapi_token</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;JPY_API_TOKEN&#39;</span><span class="p">]</span>
+
+
+    <span class="c1"># The nbgrader exchange directory writable to everyone. MUST be preexisting.</span>
+    <span class="c1"># this is the default location for the exchange directory</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">TransferApp</span><span class="o">.</span><span class="n">exchange_directory</span> <span class="o">=</span> <span class="s1">&#39;/srv/nbgrader/exchange&#39;</span>
 </pre></div>
 
 
@@ -206,15 +210,72 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 <p><br><br></p>
 <h2>Student end</h2>
 <ol>
-<li>Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the <code>Assignments</code> tab, and clicking on the blue button to <code>Fetch</code> the assignment.</li>
+<li>Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the <code>Assignments</code> tab, and clicking on the blue button to <code>Fetch</code> the assignment. In this case, I have two classes appearing with an assignment to be fetched.
+<br><br>
+<img src="images/jupyterhub+nbgrader/Assignments_fetch.jpg" class="picFloat" width="100%">
+<br><br></li>
+<li>After they have fetched the assignment, it will appear under <code>Downloaded assignments</code>. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.<ul>
+<li>they can run the cells;</li>
+<li>they delete the exception where it says to enter their code, and then enter their code;</li>
+<li>after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn't;</li>
+<li>After finishing a notebook, they can go back to the server page and click to validate that notebook, which runs all of the test cells and states if there are any errors. They can do this as many times as they want;</li>
+<li>The system will note when the assignment is submitted, so they need to turn it in on time.
+<br><br>
+<img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%">
+<br><br></li>
+</ul>
+</li>
+<li>Submit! They can do so however many times they want and just the last one will be used for grading;</li>
 </ol>
-<p><br><br>
-<!-- <img alt="Alt text" src="images/jupyterhub+nbgrader/Assignments.png" /> -->
-<!-- <img alt="Alt text" src="kthyng.github.io/blog/images/jupyterhub+nbgrader/Assignments.png" /> -->
-<img src="images/jupyterhub+nbgrader/Assignments.jpg" class="picFloat" width="100%">
-<!-- <img src="/blog/static/images/hab/hab-index-september.png" class="picFloat" width="100%"> --></p>
 <p><br><br></p>
 <h2>Instructor end</h2>
+<ol>
+<li>After students have submitted their assignments, the instructor can view what has been submitted with
+<br><br>
+               nbgrader list --inbound
+<br><br></li>
+<li>Collect all submitted assignments with the following — This will copy the student submissions to the submitted folder in a way that is automatically compatible with <code>nbgrader autograde</code>
+<br><br>
+               nbgrader collect hw1 --course ocng669
+<br><br></li>
+<li>Autograde. Note that after assignments have been autograded, they will saved into an autograded directory
+<br><br>
+               nbgrader autograde hw1
+<br><br></li>
+<li>Manual grading. To grade the assignments with an HTML form (assuming you got all the linking done properly), all we have to do is run the following and then see it at the link: https://copano.tamu.edu:8000/hub/nbgrader/ocng669. This is a really slick system for taking the pain out of any necessary manual grading.
+<br><br>
+               nbgrader formgrade
+<br><br></li>
+<li>
+<p>feedback: After assignments have been autograded and/or manually graded, they will located in the auto graded directory, and after feedback step: HTML versions of these notebooks will be saved to: feedback/{student_id}/{assignment_id}/{notebook_id}.html. This is accessible only by me because I am listed as a grader and need to be authenticated through JupyterHub.</p>
+<div class="highlight"><pre><span></span>       nbgrader feedback hw1
+</pre></div>
+
+
+</li>
+<li>
+<p>Then you have to actually get the code to the students. I found a script Jess wrote to copy the feedback over to a student’s directory (found the script from here). I have edited it because apparently the file structure in nbgrader changed since she wrote it, and I have a copy in notebooks/ocng669. I run in from that directory with:</p>
+<div class="highlight"><pre><span></span>       sudo python3 return_feedback.py hw1 --student pythontest
+
+  where I fixed the file structure so far but only by inputting a student name. I will need to change this to make it easier to use.
+</pre></div>
+
+
+</li>
+<li>
+<p>Then the files show up in their base directory in jupyterhub, notebooks, under a folder called “feedback”, then in the homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered, from:</p>
+<div class="highlight"><pre><span></span>       https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html
+
+  to:
+
+       https://copano.tamu.edu:8000/user/pythontest/files/feedback/hw1/partA.html
+
+   or, from “edit” to “files&quot;
+</pre></div>
+
+
+</li>
+</ol>
 <h2>Student end</h2>
             </article>
             <br><br>
