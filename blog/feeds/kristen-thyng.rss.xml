@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0"><channel><title>Kristen M. Thyng, Ph.D.</title><link>http://www.kristenthyng.com/blog/</link><description></description><lastBuildDate>Wed, 07 Sep 2016 11:00:00 -0500</lastBuildDate><item><title>How to use JupyterHub with nbgrader</title><link>http://www.kristenthyng.com/blog/2016/09/07/jupyterhub+nbgrader/</link><description>&lt;p&gt;I am teaching for the second time a class on Python — &lt;a href="https://github.com/kthyng/python4geosciences"&gt;Python for the Geosciences&lt;/a&gt;. It went well last semester, but I felt that too much time was spent on getting stuff installed on student machines, despite using Anaconda. (Much of this was due to Mac vs. PC behaviors.) This semester, I am trying to avoid installation issues on the student end by having them sign into a JupyterHub server, which is being run off a local workstation. I like it for the most part, though installation issues have not been trivial, particularly in coordinating JupyterHub and nbgrader, the really nice setup for distributing assignments to students so that they can work on them, check their work, and submit them, and so that I can subsequently grade them easily. I graded submitted notebooks "by hand" last semester and it was a nightmare, so avoiding that was a big goal this semester.
 &lt;br&gt;&lt;br&gt;
-As far as I understand, one of the main pain points for getting this all to work is the fact that we are trying to stay more secure, with an &lt;code&gt;https&lt;/code&gt; address for the server. I'll describe here the steps I took in case it might help future me or someone else out there. Note that I'm starting after the point of getting the JupyterHub server installed and setup.&lt;/p&gt;
+As far as I understand, one of the main pain points for getting this all to work is the fact that we are trying to stay more secure, with an &lt;code&gt;https&lt;/code&gt; address for the server. I'll describe here the steps I took in case it might help future me or someone else out there. Note that I'm starting after the point of getting the JupyterHub server installed and setup.
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;Set up student accounts on workstation for server&lt;/h1&gt;
-&lt;p&gt;With about 10 students in the class, it was annoying but not too hard to setup an account on the workstation for each of them. I used their student email nickname for their login, and made them part of a group so that I can use the group name for adding permissions and deleting them after the term is over. I chose their passwords for them since I wanted to be sure they had strong passwords. I am keeping track of them on my own (I use &lt;a href="https://1password.com/"&gt;1password&lt;/a&gt; to keep track of all this sort of thing, as well as generating passwords), and I read somewhere that sending someone a link to a public dropbox file is a relatively secure way to send information, so I made a file for each of them with their username and password and emailed it off.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo groupadd pythonfall2016  # create group
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;# home directory is on a separate drive on this workstation
-  sudo useradd -G pythonfall2016 -d /d2/home/student_username_here student_username_here
-  sudo passwd username  # give them each a good password&lt;/p&gt;
-&lt;p&gt;I had to log into each account to set up a "notebooks" directory, which is where JupyterHub was setup to start. (This is controlled in your JuyterHub config file jupyterhub_config.py by the variable c.Spawner.notebook_dir = '~/notebooks'.)&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+With about 10 students in the class, it was annoying but not too hard to setup an account on the workstation for each of them. I used their student email nickname for their login, and made them part of a group so that I can use the group name for adding permissions and deleting them after the term is over. I chose their passwords for them since I wanted to be sure they had strong passwords. I am keeping track of them on my own (I use &lt;a href="https://1password.com/"&gt;1password&lt;/a&gt; to keep track of all this sort of thing, as well as generating passwords), and I read somewhere that sending someone a link to a public dropbox file is a relatively secure way to send information, so I made a file for each of them with their username and password and emailed it off.
+&lt;br&gt;&lt;br&gt;
+    sudo groupadd pythonfall2016  # create group
+    # home directory is on a separate drive on this workstation
+    sudo useradd -G pythonfall2016 -d /d2/home/student_username_here student_username_here
+    sudo passwd username  # give them each a good password
+&lt;br&gt;&lt;br&gt;
+I had to log into each account to set up a "notebooks" directory, which is where JupyterHub was setup to start. (This is controlled in your JuyterHub config file jupyterhub_config.py by the variable c.Spawner.notebook_dir = '~/notebooks'.)&lt;/p&gt;
 &lt;p&gt;I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authenticated list in jupyterhub_config.py so they would be able to log in: c.LocalAuthenticator.group_whitelist = {'pythonfall2016'}.&lt;/p&gt;
 &lt;h1&gt;nbgrader&lt;/h1&gt;
 &lt;h2&gt;nbgrader_config file&lt;/h2&gt;
