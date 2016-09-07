@@ -80,10 +80,9 @@ export JPY_API_TOKEN=[other token from jupyterhub setup]
 
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;A little more setup&lt;/h2&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;Note that the default exchange server is located at:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -116,7 +115,6 @@ nbgrader extension activate assignment_list
 Now we want to actually do the assignments. Here is my summary of the steps, based on the &lt;a href="https://nbgrader.readthedocs.io/en/stable/"&gt;nbgrader docs&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Instructor end&lt;/h2&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;Start your course directory within your &lt;code&gt;notebooks&lt;/code&gt; directory, or wherever is the landing pad for JupyterHub within your directory. I'll use &lt;code&gt;oncg669&lt;/code&gt; as my course id and name.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader quickstart ocng669

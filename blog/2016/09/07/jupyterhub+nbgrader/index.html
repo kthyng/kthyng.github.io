@@ -138,10 +138,9 @@ export JPY_API_TOKEN=[other token from jupyterhub setup]
 
 <p><br><br></p>
 <h2>A little more setup</h2>
-<p><br><br></p>
 <p>Note that the default exchange server is located at:
 <br><br></p>
-<div class="highlight"><pre><span></span>c.TransferApp.exchange_directory = &#39;/srv/nbgrader/exchange&#39;
+<div class="highlight"><pre><span></span>    c.TransferApp.exchange_directory = &#39;/srv/nbgrader/exchange&#39;
 </pre></div>
 
 
@@ -174,7 +173,6 @@ nbgrader extension activate assignment_list
 Now we want to actually do the assignments. Here is my summary of the steps, based on the <a href="https://nbgrader.readthedocs.io/en/stable/">nbgrader docs</a>.</p>
 <p><br><br></p>
 <h2>Instructor end</h2>
-<p><br><br></p>
 <p>Start your course directory within your <code>notebooks</code> directory, or wherever is the landing pad for JupyterHub within your directory. I'll use <code>oncg669</code> as my course id and name.
 <br><br></p>
 <div class="highlight"><pre><span></span>nbgrader quickstart ocng669
