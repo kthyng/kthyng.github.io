@@ -148,9 +148,9 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 &lt;li&gt;Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the &lt;code&gt;Assignments&lt;/code&gt; tab, and clicking on the blue button to &lt;code&gt;Fetch&lt;/code&gt; the assignment.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
-&lt;img alt="Alt text" src="images/jupyterhub+nbgrader/Assignments.png" /&gt;
+&lt;!-- &lt;img alt="Alt text" src="images/jupyterhub+nbgrader/Assignments.png" /&gt; --&gt;
 &lt;!-- &lt;img alt="Alt text" src="kthyng.github.io/blog/images/jupyterhub+nbgrader/Assignments.png" /&gt; --&gt;
-&lt;!-- &lt;img src="images/Assignments.png" class="picFloat" width="50%"&gt; --&gt;
+&lt;img src="images/jupyterhub+nbgrader/Assignments.png" class="picFloat" width="30%"&gt;
 &lt;!-- &lt;img src="/blog/static/images/hab/hab-index-september.png" class="picFloat" width="100%"&gt; --&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Instructor end&lt;/h2&gt;
