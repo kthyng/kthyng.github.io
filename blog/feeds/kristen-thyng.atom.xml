@@ -25,7 +25,7 @@ I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authentica
 
 # You only need this if you are running nbgrader on a shared
 # server set up.
-c.NbGrader.course_id = &amp;quot;ocng669&amp;quot;
+c.NbGrader.course_id = &amp;quot;course_name&amp;quot;
 
 # Update this list with other assignments you want
 c.NbGrader.db_assignments = [dict(name=&amp;quot;hw1&amp;quot;)]
@@ -33,14 +33,7 @@ c.NbGrader.db_assignments = [dict(name=&amp;quot;hw1&amp;quot;)]
 # Change the students in this list with that actual students in
 # your course
 c.NbGrader.db_students = [
-    dict(id=&amp;quot;pythontest&amp;quot;, first_name=&amp;quot;P&amp;quot;, last_name=&amp;quot;pythontest&amp;quot;),
-    dict(id=&amp;quot;ritvik&amp;quot;, first_name=&amp;quot;Ritvik&amp;quot;, last_name=&amp;quot;Dhupkar&amp;quot;),
-    dict(id=&amp;quot;fiorenja&amp;quot;, first_name=&amp;quot;James&amp;quot;, last_name=&amp;quot;Fiorendino&amp;quot;),
-    dict(id=&amp;quot;son536&amp;quot;, first_name=&amp;quot;Woongrak&amp;quot;, last_name=&amp;quot;Son&amp;quot;),
-    dict(id=&amp;quot;shailavi&amp;quot;, first_name=&amp;quot;Lu&amp;quot;, last_name=&amp;quot;Sun&amp;quot;),
-    dict(id=&amp;quot;sthapa&amp;quot;, first_name=&amp;quot;Shubhechchha&amp;quot;, last_name=&amp;quot;Thapa&amp;quot;),
-    dict(id=&amp;quot;aeburgess&amp;quot;, first_name=&amp;quot;, Allyson&amp;quot;, last_name=&amp;quot;Lucchese&amp;quot;),
-    dict(id=&amp;quot;fay155&amp;quot;, first_name=&amp;quot;Amanda&amp;quot;, last_name=&amp;quot;Sterne&amp;quot;)
+    dict(id=&amp;quot;pythontest&amp;quot;, first_name=&amp;quot;P&amp;quot;, last_name=&amp;quot;pythontest&amp;quot;)
 ]
 
 #------------------------------------------------------------------------------
@@ -50,17 +43,17 @@ c.NbGrader.db_students = [
 # IP address for the server
 c.FormgradeApp.ip = &amp;quot;127.0.0.1&amp;quot;
 # Port for the server
-c.FormgradeApp.port = 5000 # 9000
+c.FormgradeApp.port = 5000
 # Authenticator used in all formgrade requests.
 c.FormgradeApp.authenticator_class = &amp;quot;nbgrader.auth.hubauth.HubAuth&amp;quot;
 
 # from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew
 # for running with https
-# this line made it so the page was rendered nicely and actually conntected
+# this line made it so the page was rendered nicely and actually connected
 # to the class database properly (instead of the localhost)
 c.HubAuth.hub_base_url = &amp;quot;https://copano.tamu.edu:8000&amp;quot;
-c.HubAuth.notebook_url_prefix = &amp;quot;ocng669&amp;quot;
-c.HubAuth.graders = [&amp;quot;kthyng&amp;quot;]
+c.HubAuth.notebook_url_prefix = &amp;quot;course_name&amp;quot;
+c.HubAuth.graders = [&amp;quot;my_user_name&amp;quot;]
 
 # The nbgrader exchange directory writable to everyone. MUST be preexisting.
 # this is the default location for the exchange directory

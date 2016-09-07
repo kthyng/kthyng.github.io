@@ -86,7 +86,7 @@ I then added the group <code>pythonfall2016</code> to the authenticated list in 
 
 # You only need this if you are running nbgrader on a shared
 # server set up.
-c.NbGrader.course_id = &quot;ocng669&quot;
+c.NbGrader.course_id = &quot;course_name&quot;
 
 # Update this list with other assignments you want
 c.NbGrader.db_assignments = [dict(name=&quot;hw1&quot;)]
@@ -94,14 +94,7 @@ c.NbGrader.db_assignments = [dict(name=&quot;hw1&quot;)]
 # Change the students in this list with that actual students in
 # your course
 c.NbGrader.db_students = [
-    dict(id=&quot;pythontest&quot;, first_name=&quot;P&quot;, last_name=&quot;pythontest&quot;),
-    dict(id=&quot;ritvik&quot;, first_name=&quot;Ritvik&quot;, last_name=&quot;Dhupkar&quot;),
-    dict(id=&quot;fiorenja&quot;, first_name=&quot;James&quot;, last_name=&quot;Fiorendino&quot;),
-    dict(id=&quot;son536&quot;, first_name=&quot;Woongrak&quot;, last_name=&quot;Son&quot;),
-    dict(id=&quot;shailavi&quot;, first_name=&quot;Lu&quot;, last_name=&quot;Sun&quot;),
-    dict(id=&quot;sthapa&quot;, first_name=&quot;Shubhechchha&quot;, last_name=&quot;Thapa&quot;),
-    dict(id=&quot;aeburgess&quot;, first_name=&quot;, Allyson&quot;, last_name=&quot;Lucchese&quot;),
-    dict(id=&quot;fay155&quot;, first_name=&quot;Amanda&quot;, last_name=&quot;Sterne&quot;)
+    dict(id=&quot;pythontest&quot;, first_name=&quot;P&quot;, last_name=&quot;pythontest&quot;)
 ]
 
 #------------------------------------------------------------------------------
@@ -111,17 +104,17 @@ c.NbGrader.db_students = [
 # IP address for the server
 c.FormgradeApp.ip = &quot;127.0.0.1&quot;
 # Port for the server
-c.FormgradeApp.port = 5000 # 9000
+c.FormgradeApp.port = 5000
 # Authenticator used in all formgrade requests.
 c.FormgradeApp.authenticator_class = &quot;nbgrader.auth.hubauth.HubAuth&quot;
 
 # from https://groups.google.com/forum/#!topic/jupyter/oTRM4XuRUew
 # for running with https
-# this line made it so the page was rendered nicely and actually conntected
+# this line made it so the page was rendered nicely and actually connected
 # to the class database properly (instead of the localhost)
 c.HubAuth.hub_base_url = &quot;https://copano.tamu.edu:8000&quot;
-c.HubAuth.notebook_url_prefix = &quot;ocng669&quot;
-c.HubAuth.graders = [&quot;kthyng&quot;]
+c.HubAuth.notebook_url_prefix = &quot;course_name&quot;
+c.HubAuth.graders = [&quot;my_user_name&quot;]
 
 # The nbgrader exchange directory writable to everyone. MUST be preexisting.
 # this is the default location for the exchange directory
