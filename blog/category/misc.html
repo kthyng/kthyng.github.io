@@ -209,30 +209,20 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 </ol>
 <p><br><br></p>
 <h2>Student end</h2>
-<ol>
-<li>
 <p>Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the <code>Assignments</code> tab, and clicking on the blue button to <code>Fetch</code> the assignment. In this case, I have two classes appearing with an assignment to be fetched.
 <br><br>
 <img src="images/jupyterhub+nbgrader/Assignments_fetch.jpg" class="picFloat" width="100%">
 <br><br></p>
-</li>
-<li>
-<p>After they have fetched the assignment, it will appear under <code>Downloaded assignments</code>. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.</p>
-<ul>
-<li>they can run the cells;</li>
-<li>they delete the exception where it says to enter their code, and then enter their code;</li>
-<li>after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn't;</li>
-<li>After finishing a notebook, they can go back to the server page and click to validate that notebook, which runs all of the test cells and states if there are any errors. They can do this as many times as they want;</li>
-<li>The system will note when the assignment is submitted, so they need to turn it in on time.
-<br><br>
-<img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%">
-<br><br></li>
-</ul>
-</li>
-<li>
-<p>Submit! They can do so however many times they want and just the last one will be used for grading;</p>
-</li>
-</ol>
+<p>After they have fetched the assignment, it will appear under <code>Downloaded assignments</code>. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.
+    - they can run the cells;
+    - they delete the exception where it says to enter their code, and then enter their code;
+    - after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn't;
+    - After finishing a notebook, they can go back to the server page and click to validate that notebook, which runs all of the test cells and states if there are any errors. They can do this as many times as they want;
+    - The system will note when the assignment is submitted, so they need to turn it in on time.
+        <br><br>
+        <img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%">
+        <br><br></p>
+<p>Now the students can submit! They can do so however many times they want and just the last one will be used for grading;</p>
 <p><br><br></p>
 <h2>Instructor end</h2>
 <ol>
@@ -268,9 +258,13 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 
 
 </li>
-<li>
-<p>Then the files show up in their base directory in jupyterhub, notebooks, under a folder called “feedback”, then in the homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered, from:</p>
-<div class="highlight"><pre><span></span>       https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html
+</ol>
+<!-- <br><br>
+<img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%">
+<br><br> -->
+
+<ul>
+<li>Then the files show up in their base directory in jupyterhub, notebooks, under a folder called “feedback”, then in the homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered, from:<div class="highlight"><pre><span></span>       https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html
 
   to:
 
@@ -281,7 +275,7 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 
 
 </li>
-</ol>
+</ul>
 <h2>Student end</h2>
             </article>
             <br><br>
