@@ -119,7 +119,7 @@ For students:
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
 Now we want to actually do the assignments. Here is my summary of the steps, based on the &lt;a href="https://nbgrader.readthedocs.io/en/stable/"&gt;nbgrader docs&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2&gt;Instructor end&lt;/h2&gt;
+&lt;h2&gt;Instructor perspective&lt;/h2&gt;
 &lt;p&gt;Start your course directory within your &lt;code&gt;notebooks&lt;/code&gt; directory, or wherever is the landing pad for JupyterHub within your directory. I'll use &lt;code&gt;oncg669&lt;/code&gt; as my course id and name.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader quickstart ocng669
@@ -147,27 +147,26 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
             nbgrader list&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2&gt;Student end&lt;/h2&gt;
+&lt;h2&gt;Student perspective&lt;/h2&gt;
 &lt;p&gt;Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the &lt;code&gt;Assignments&lt;/code&gt; tab, and clicking on the blue button to &lt;code&gt;Fetch&lt;/code&gt; the assignment. In this case, I have two classes appearing with an assignment to be fetched.
 &lt;br&gt;&lt;br&gt;
 &lt;img src="images/jupyterhub+nbgrader/Assignments_fetch.jpg" class="picFloat" width="100%"&gt;
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;After they have fetched the assignment, it will appear under &lt;code&gt;Downloaded assignments&lt;/code&gt;. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;- they can run the cells;
-- they delete the exception where it says to enter their code, and then enter their code;
-- after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn&amp;#39;t;
-- After finishing a notebook, they can go back to the server page and click to validate that notebook, which runs all of the test cells and states if there are any errors. They can do this as many times as they want;
-- The system will note when the assignment is submitted, so they need to turn it in on time.
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;ol&gt;
+&lt;li&gt;they can run the cells;&lt;/li&gt;
+&lt;li&gt;they delete the exception where it says to enter their code, and then enter their code;&lt;/li&gt;
+&lt;li&gt;after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn't;&lt;/li&gt;
+&lt;li&gt;After finishing a notebook, they can go back to the server page and click to validate that notebook, which runs all of the test cells and states if there are any errors. They can do this as many times as they want;&lt;/li&gt;
+&lt;li&gt;The system will note when the assignment is submitted, so they need to turn it in on time.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
 &lt;img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%"&gt;
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;Now the students can submit! They can do so however many times they want and just the last one will be used for grading;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2&gt;Instructor end&lt;/h2&gt;
+&lt;h2&gt;Instructor perspective&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;After students have submitted their assignments, the instructor can view what has been submitted with
 &lt;br&gt;&lt;br&gt;
@@ -181,7 +180,7 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 &lt;br&gt;&lt;br&gt;
                nbgrader autograde hw1
 &lt;br&gt;&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;Manual grading. To grade the assignments with an HTML form (assuming you got all the linking done properly), all we have to do is run the following and then see it at the link: https://copano.tamu.edu:8000/hub/nbgrader/ocng669. This is a really slick system for taking the pain out of any necessary manual grading. Some snapshots of what formgrade looks like in practice are shown below.
+&lt;li&gt;Manual grading. To grade the assignments with an HTML form (assuming you got all the linking done properly), all we have to do is run the following and then see it at the link: &lt;code&gt;https://copano.tamu.edu:8000/hub/nbgrader/ocng669&lt;/code&gt;. This is a really slick system for taking the pain out of any necessary manual grading. Some snapshots of what formgrade looks like in practice are shown below.
 &lt;br&gt;&lt;br&gt;
                nbgrader formgrade
 &lt;br&gt;&lt;br&gt;&lt;/li&gt;
@@ -201,32 +200,23 @@ The &lt;code&gt;sudo&lt;/code&gt; is necessary because the script copies the fee
 &lt;br&gt;&lt;br&gt;
 &lt;script src="https://gist.github.com/kthyng/00fd1cd1e74730252fecb8a41bf0c4cc.js"&gt;&lt;/script&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;
-&lt;em&gt;formgrade Assignments&lt;/em&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Gallery for &lt;code&gt;formgrade&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;formgrade Assignments&lt;/em&gt;
 &lt;img src="images/jupyterhub+nbgrader/formgrade_assignments.jpg" class="picFloat" width="100%"&gt;
+&lt;br&gt;&lt;br&gt;
 &lt;em&gt;formgrade Assignments &amp;gt; hw1&lt;/em&gt;
-&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1.jpg" class="picFloat" width="100%"&gt;
-&lt;em&gt;formgrade Assignments &amp;gt; hw1 &amp;gt; partB&lt;/em&gt;
-&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1_partb.jpg" class="picFloat" width="100%"&gt;
-&lt;em&gt;formgrade Students&lt;/em&gt;
-&lt;img src="images/jupyterhub+nbgrader/formgrade_students.jpg" class="picFloat" width="100%"&gt;
-&lt;em&gt;formgrade notebook view&lt;/em&gt;
+&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1.jpg" class="picFloat" width="100%"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;formgrade Assignments &amp;gt; hw1 &amp;gt; partB&lt;/em&gt;
+&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1_partb.jpg" class="picFloat" width="100%"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;formgrade Students&lt;/em&gt;
+&lt;img src="images/jupyterhub+nbgrader/formgrade_students.jpg" class="picFloat" width="100%"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;formgrade notebook view&lt;/em&gt;
 &lt;img src="images/jupyterhub+nbgrader/formgrade_notebookview.jpg" class="picFloat" width="100%"&gt;
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Then the files show up in their base directory in jupyterhub, notebooks, under a folder called “feedback”, then in the homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered, from:&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;       https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html
-
-  to:
-
-       https://copano.tamu.edu:8000/user/pythontest/files/feedback/hw1/partA.html
-
-   or, from “edit” to “files&amp;quot;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Student end&lt;/h2&gt;</summary><category term="python"></category><category term="jupyter"></category><category term="teaching"></category></entry><entry><title>Published paper!</title><link href="http://www.kristenthyng.com/blog/2016/08/29/colormaps_paper/" rel="alternate"></link><published>2016-08-29T21:00:00-05:00</published><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2016-08-29:blog/2016/08/29/colormaps_paper/</id><summary type="html">&lt;p&gt;My new paper is now &lt;a href="http://tos.org/oceanography/assets/docs/29-3_thyng.pdf"&gt;published&lt;/a&gt; on colormaps in oceanography! I wrote it with Chad Greene at UT, and Rob Hetland, Heather Zimmerle, and Steve DiMarco at Texas A&amp;amp;M in my department. In it, we discuss guidelines for choosing good colormaps to properly show your data, and present a suite of colormaps to help you do so.&lt;/p&gt;</summary><category term="paper"></category><category term="oceanography"></category><category term="colormaps"></category></entry><entry><title>Published paper!</title><link href="http://www.kristenthyng.com/blog/2016/07/25/tcy_paper/" rel="alternate"></link><published>2016-07-25T14:00:00-05:00</published><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2016-07-25:blog/2016/07/25/tcy_paper/</id><summary type="html">&lt;p&gt;A paper that I contributed to is now &lt;a href="http://www.sciencedirect.com/science/article/pii/S0025326X16303964"&gt;available&lt;/a&gt;! I modeled the Texas City "Y" oil spill, which occurred in Galveston Bay – near the Texas City "Y" – in March 2014, as part of an effort with researchers at UTMSI to better understand the spill. It was a great interdisciplinary effort!&lt;/p&gt;</summary><category term="paper"></category><category term="oceanography"></category><category term="oil spill"></category></entry><entry><title>cmocean on PyPI</title><link href="http://www.kristenthyng.com/blog/2016/06/02/cmocean_pypi/" rel="alternate"></link><published>2016-06-02T10:00:00-05:00</published><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2016-06-02:blog/2016/06/02/cmocean_pypi/</id><summary type="html">&lt;p&gt;After a hiatus of technical difficulties, the cmocean package of colormaps for oceanography are once again available on PyPI. Simple installation:
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2&gt;Student perspective&lt;/h2&gt;
+&lt;p&gt;The feedback files will now show up in their base directory in jupyterhub, &lt;code&gt;notebooks&lt;/code&gt;, under a folder called &lt;code&gt;feedback&lt;/code&gt;, in a labeled homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered. So you have to change the url from &lt;code&gt;https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html&lt;/code&gt; to     &lt;code&gt;https://copano.tamu.edu:8000/user/pythontest/files/feedback/hw1/partA.html&lt;/code&gt;, for example.&lt;/p&gt;</summary><category term="python"></category><category term="jupyter"></category><category term="teaching"></category></entry><entry><title>Published paper!</title><link href="http://www.kristenthyng.com/blog/2016/08/29/colormaps_paper/" rel="alternate"></link><published>2016-08-29T21:00:00-05:00</published><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2016-08-29:blog/2016/08/29/colormaps_paper/</id><summary type="html">&lt;p&gt;My new paper is now &lt;a href="http://tos.org/oceanography/assets/docs/29-3_thyng.pdf"&gt;published&lt;/a&gt; on colormaps in oceanography! I wrote it with Chad Greene at UT, and Rob Hetland, Heather Zimmerle, and Steve DiMarco at Texas A&amp;amp;M in my department. In it, we discuss guidelines for choosing good colormaps to properly show your data, and present a suite of colormaps to help you do so.&lt;/p&gt;</summary><category term="paper"></category><category term="oceanography"></category><category term="colormaps"></category></entry><entry><title>Published paper!</title><link href="http://www.kristenthyng.com/blog/2016/07/25/tcy_paper/" rel="alternate"></link><published>2016-07-25T14:00:00-05:00</published><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2016-07-25:blog/2016/07/25/tcy_paper/</id><summary type="html">&lt;p&gt;A paper that I contributed to is now &lt;a href="http://www.sciencedirect.com/science/article/pii/S0025326X16303964"&gt;available&lt;/a&gt;! I modeled the Texas City "Y" oil spill, which occurred in Galveston Bay – near the Texas City "Y" – in March 2014, as part of an effort with researchers at UTMSI to better understand the spill. It was a great interdisciplinary effort!&lt;/p&gt;</summary><category term="paper"></category><category term="oceanography"></category><category term="oil spill"></category></entry><entry><title>cmocean on PyPI</title><link href="http://www.kristenthyng.com/blog/2016/06/02/cmocean_pypi/" rel="alternate"></link><published>2016-06-02T10:00:00-05:00</published><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2016-06-02:blog/2016/06/02/cmocean_pypi/</id><summary type="html">&lt;p&gt;After a hiatus of technical difficulties, the cmocean package of colormaps for oceanography are once again available on PyPI. Simple installation:
 &lt;br&gt;&lt;br&gt;
 pip install cmocean&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;

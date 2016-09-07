@@ -177,7 +177,7 @@ For students:
 <p><br><br>
 Now we want to actually do the assignments. Here is my summary of the steps, based on the <a href="https://nbgrader.readthedocs.io/en/stable/">nbgrader docs</a>.</p>
 <p><br><br></p>
-<h2>Instructor end</h2>
+<h2>Instructor perspective</h2>
 <p>Start your course directory within your <code>notebooks</code> directory, or wherever is the landing pad for JupyterHub within your directory. I'll use <code>oncg669</code> as my course id and name.
 <br><br></p>
 <div class="highlight"><pre><span></span>    nbgrader quickstart ocng669
@@ -205,27 +205,26 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
             nbgrader list</li>
 </ol>
 <p><br><br></p>
-<h2>Student end</h2>
+<h2>Student perspective</h2>
 <p>Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the <code>Assignments</code> tab, and clicking on the blue button to <code>Fetch</code> the assignment. In this case, I have two classes appearing with an assignment to be fetched.
 <br><br>
 <img src="images/jupyterhub+nbgrader/Assignments_fetch.jpg" class="picFloat" width="100%">
 <br><br></p>
 <p>After they have fetched the assignment, it will appear under <code>Downloaded assignments</code>. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.
 <br><br></p>
-<div class="highlight"><pre><span></span>- they can run the cells;
-- they delete the exception where it says to enter their code, and then enter their code;
-- after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn&#39;t;
-- After finishing a notebook, they can go back to the server page and click to validate that notebook, which runs all of the test cells and states if there are any errors. They can do this as many times as they want;
-- The system will note when the assignment is submitted, so they need to turn it in on time.
-</pre></div>
-
-
+<ol>
+<li>they can run the cells;</li>
+<li>they delete the exception where it says to enter their code, and then enter their code;</li>
+<li>after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn't;</li>
+<li>After finishing a notebook, they can go back to the server page and click to validate that notebook, which runs all of the test cells and states if there are any errors. They can do this as many times as they want;</li>
+<li>The system will note when the assignment is submitted, so they need to turn it in on time.</li>
+</ol>
 <p><br><br>
 <img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%">
 <br><br></p>
 <p>Now the students can submit! They can do so however many times they want and just the last one will be used for grading;</p>
 <p><br><br></p>
-<h2>Instructor end</h2>
+<h2>Instructor perspective</h2>
 <ol>
 <li>After students have submitted their assignments, the instructor can view what has been submitted with
 <br><br>
@@ -239,7 +238,7 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 <br><br>
                nbgrader autograde hw1
 <br><br></li>
-<li>Manual grading. To grade the assignments with an HTML form (assuming you got all the linking done properly), all we have to do is run the following and then see it at the link: https://copano.tamu.edu:8000/hub/nbgrader/ocng669. This is a really slick system for taking the pain out of any necessary manual grading. Some snapshots of what formgrade looks like in practice are shown below.
+<li>Manual grading. To grade the assignments with an HTML form (assuming you got all the linking done properly), all we have to do is run the following and then see it at the link: <code>https://copano.tamu.edu:8000/hub/nbgrader/ocng669</code>. This is a really slick system for taking the pain out of any necessary manual grading. Some snapshots of what formgrade looks like in practice are shown below.
 <br><br>
                nbgrader formgrade
 <br><br></li>
@@ -259,32 +258,23 @@ The <code>sudo</code> is necessary because the script copies the feedback file s
 <br><br>
 <script src="https://gist.github.com/kthyng/00fd1cd1e74730252fecb8a41bf0c4cc.js"></script></li>
 </ol>
-<p><br><br>
-<em>formgrade Assignments</em>
+<p><br><br></p>
+<h3>Gallery for <code>formgrade</code></h3>
+<p><em>formgrade Assignments</em>
 <img src="images/jupyterhub+nbgrader/formgrade_assignments.jpg" class="picFloat" width="100%">
+<br><br>
 <em>formgrade Assignments &gt; hw1</em>
-<img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1.jpg" class="picFloat" width="100%">
-<em>formgrade Assignments &gt; hw1 &gt; partB</em>
-<img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1_partb.jpg" class="picFloat" width="100%">
-<em>formgrade Students</em>
-<img src="images/jupyterhub+nbgrader/formgrade_students.jpg" class="picFloat" width="100%">
-<em>formgrade notebook view</em>
+<img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1.jpg" class="picFloat" width="100%"></p>
+<p><em>formgrade Assignments &gt; hw1 &gt; partB</em>
+<img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1_partb.jpg" class="picFloat" width="100%"></p>
+<p><em>formgrade Students</em>
+<img src="images/jupyterhub+nbgrader/formgrade_students.jpg" class="picFloat" width="100%"></p>
+<p><em>formgrade notebook view</em>
 <img src="images/jupyterhub+nbgrader/formgrade_notebookview.jpg" class="picFloat" width="100%">
 <br><br></p>
-<ul>
-<li>Then the files show up in their base directory in jupyterhub, notebooks, under a folder called “feedback”, then in the homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered, from:<div class="highlight"><pre><span></span>       https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html
-
-  to:
-
-       https://copano.tamu.edu:8000/user/pythontest/files/feedback/hw1/partA.html
-
-   or, from “edit” to “files&quot;
-</pre></div>
-
-
-</li>
-</ul>
-<h2>Student end</h2>
+<p><br><br></p>
+<h2>Student perspective</h2>
+<p>The feedback files will now show up in their base directory in jupyterhub, <code>notebooks</code>, under a folder called <code>feedback</code>, in a labeled homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered. So you have to change the url from <code>https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html</code> to     <code>https://copano.tamu.edu:8000/user/pythontest/files/feedback/hw1/partA.html</code>, for example.</p>
 </article>
 <br>
 
