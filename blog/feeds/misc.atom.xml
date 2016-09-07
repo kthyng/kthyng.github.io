@@ -129,16 +129,13 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 &lt;li&gt;Make your homework assignment following the examples. The examples were plenty helpful for me to follow.
 &lt;br&gt;&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;Assign the homework, using the nice header that is included in the directory:
-&lt;br&gt;&lt;br&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader assign hw1 --IncludeHeaderFooter.header=source/header.ipynb
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;
-1. Inspect the release folder (release/hw1) to make sure it looks right.
 &lt;br&gt;&lt;br&gt;
-1. Release the assignment to the students, so they can actually access it:
-&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader release hw1
+            nbgrader assign hw1 --IncludeHeaderFooter.header=source/header.ipynb
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Inspect the release folder (release/hw1) to make sure it looks right.
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Release the assignment to the students, so they can actually access it:
+&lt;br&gt;&lt;br&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader release hw1
 &lt;/pre&gt;&lt;/div&gt;
 
 
