@@ -202,18 +202,28 @@ The &lt;code&gt;sudo&lt;/code&gt; is necessary because the script copies the fee
 &lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Gallery for &lt;code&gt;formgrade&lt;/code&gt;&lt;/h3&gt;
-&lt;h4&gt;formgrade Assignments&lt;/h4&gt;
-&lt;p&gt;&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments.jpg" class="picFloat" width="100%"&gt;&lt;/p&gt;
-&lt;h4&gt;formgrade Assignments &amp;gt; hw1&lt;/h4&gt;
-&lt;p&gt;&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1.jpg" class="picFloat" width="100%"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;formgrade Assignments&lt;/strong&gt;
+&lt;br&gt;
+&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments.jpg" class="picFloat" width="100%"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;formgrade Assignments &amp;gt; hw1&lt;/strong&gt;
+&lt;br&gt;
+&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1.jpg" class="picFloat" width="100%"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;formgrade Assignments &amp;gt; hw1 &amp;gt; partB&lt;/strong&gt;
-&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1_partb.jpg" class="picFloat" width="100%"&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1_partb.jpg" class="picFloat" width="100%"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;formgrade Students&lt;/strong&gt;
-&lt;img src="images/jupyterhub+nbgrader/formgrade_students.jpg" class="picFloat" width="100%"&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;img src="images/jupyterhub+nbgrader/formgrade_students.jpg" class="picFloat" width="100%"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;formgrade notebook view&lt;/strong&gt;
+&lt;br&gt;
 Includes a &lt;code&gt;next&lt;/code&gt; button to move quickly between student notebooks!
+&lt;br&gt;
 &lt;img src="images/jupyterhub+nbgrader/formgrade_notebookview.jpg" class="picFloat" width="100%"&gt;
-&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Student perspective&lt;/h2&gt;
 &lt;p&gt;The feedback files will now show up in their base directory in jupyterhub, &lt;code&gt;notebooks&lt;/code&gt;, under a folder called &lt;code&gt;feedback&lt;/code&gt;, in a labeled homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered. So you have to change the url from
@@ -227,9 +237,13 @@ to
 for example.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
 &lt;strong&gt;feedback, unrendered&lt;/strong&gt;
-&lt;img src="images/jupyterhub+nbgrader/feedback_unrendered.jpg" class="picFloat" width="100%"&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;img src="images/jupyterhub+nbgrader/feedback_unrendered.jpg" class="picFloat" width="100%"&gt;
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;feedback, rendered&lt;/strong&gt;
+&lt;br&gt;
 Note that the top of the feedback is a summary of the student's homework, complete with links to the relevant parts of the notebooks. Very cool!
+&lt;br&gt;
 &lt;img src="images/jupyterhub+nbgrader/feedback_rendered.jpg" class="picFloat" width="100%"&gt;&lt;/p&gt;</summary><category term="python"></category><category term="jupyter"></category><category term="teaching"></category></entry><entry><title>Published paper!</title><link href="http://www.kristenthyng.com/blog/2016/08/29/colormaps_paper/" rel="alternate"></link><published>2016-08-29T21:00:00-05:00</published><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2016-08-29:blog/2016/08/29/colormaps_paper/</id><summary type="html">&lt;p&gt;My new paper is now &lt;a href="http://tos.org/oceanography/assets/docs/29-3_thyng.pdf"&gt;published&lt;/a&gt; on colormaps in oceanography! I wrote it with Chad Greene at UT, and Rob Hetland, Heather Zimmerle, and Steve DiMarco at Texas A&amp;amp;M in my department. In it, we discuss guidelines for choosing good colormaps to properly show your data, and present a suite of colormaps to help you do so.&lt;/p&gt;</summary><category term="paper"></category><category term="oceanography"></category><category term="colormaps"></category></entry><entry><title>Published paper!</title><link href="http://www.kristenthyng.com/blog/2016/07/25/tcy_paper/" rel="alternate"></link><published>2016-07-25T14:00:00-05:00</published><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2016-07-25:blog/2016/07/25/tcy_paper/</id><summary type="html">&lt;p&gt;A paper that I contributed to is now &lt;a href="http://www.sciencedirect.com/science/article/pii/S0025326X16303964"&gt;available&lt;/a&gt;! I modeled the Texas City "Y" oil spill, which occurred in Galveston Bay – near the Texas City "Y" – in March 2014, as part of an effort with researchers at UTMSI to better understand the spill. It was a great interdisciplinary effort!&lt;/p&gt;</summary><category term="paper"></category><category term="oceanography"></category><category term="oil spill"></category></entry><entry><title>cmocean on PyPI</title><link href="http://www.kristenthyng.com/blog/2016/06/02/cmocean_pypi/" rel="alternate"></link><published>2016-06-02T10:00:00-05:00</published><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2016-06-02:blog/2016/06/02/cmocean_pypi/</id><summary type="html">&lt;p&gt;After a hiatus of technical difficulties, the cmocean package of colormaps for oceanography are once again available on PyPI. Simple installation:
 &lt;br&gt;&lt;br&gt;
 pip install cmocean&lt;/p&gt;
