@@ -21,7 +21,8 @@ I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authentica
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;nbgrader&lt;/h1&gt;
 &lt;h2&gt;nbgrader_config file&lt;/h2&gt;
-&lt;p&gt;This is what I needed in my course ngrader_config.py file to get things to work. I triangulated between what is in the &lt;a href="https://nbgrader.readthedocs.io/en/stable/"&gt;nbgrader docs&lt;/a&gt; and what I found on various google groups discussions and some github links I stumbled across.&lt;/p&gt;
+&lt;p&gt;This is what I needed in my course ngrader_config.py file to get things to work. I triangulated between what is in the &lt;a href="https://nbgrader.readthedocs.io/en/stable/"&gt;nbgrader docs&lt;/a&gt; and what I found on various google groups discussions and some github links I stumbled across.
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    c = get_config()
 
     # You only need this if you are running nbgrader on a shared
@@ -128,28 +129,28 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 &lt;li&gt;Make your homework assignment following the examples. The examples were plenty helpful for me to follow.
 &lt;br&gt;&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;Assign the homework, using the nice header that is included in the directory:
-&lt;br&gt;&lt;br&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader assign hw1 --IncludeHeaderFooter.header=source/header.ipynb
+&lt;br&gt;&lt;br&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader assign hw1 --IncludeHeaderFooter.header=source/header.ipynb
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
 1. Inspect the release folder (release/hw1) to make sure it looks right.
 &lt;br&gt;&lt;br&gt;
 1. Release the assignment to the students, so they can actually access it:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader release hw1
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader release hw1
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
 1. Make sure it has gone out ok:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nbgrader list
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader list
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Student end&lt;/h2&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;

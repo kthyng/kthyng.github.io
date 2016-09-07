@@ -82,7 +82,8 @@ I then added the group <code>pythonfall2016</code> to the authenticated list in 
 <br><br><br></p>
 <h1>nbgrader</h1>
 <h2>nbgrader_config file</h2>
-<p>This is what I needed in my course ngrader_config.py file to get things to work. I triangulated between what is in the <a href="https://nbgrader.readthedocs.io/en/stable/">nbgrader docs</a> and what I found on various google groups discussions and some github links I stumbled across.</p>
+<p>This is what I needed in my course ngrader_config.py file to get things to work. I triangulated between what is in the <a href="https://nbgrader.readthedocs.io/en/stable/">nbgrader docs</a> and what I found on various google groups discussions and some github links I stumbled across.
+<br><br></p>
 <div class="highlight"><pre><span></span>    c = get_config()
 
     # You only need this if you are running nbgrader on a shared
@@ -189,28 +190,28 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 <li>Make your homework assignment following the examples. The examples were plenty helpful for me to follow.
 <br><br></li>
 <li>Assign the homework, using the nice header that is included in the directory:
-<br><br><div class="highlight"><pre><span></span>nbgrader assign hw1 --IncludeHeaderFooter.header=source/header.ipynb
+<br><br><div class="highlight"><pre><span></span>    nbgrader assign hw1 --IncludeHeaderFooter.header=source/header.ipynb
 </pre></div>
 
 
-</li>
-</ol>
 <p><br><br>
 1. Inspect the release folder (release/hw1) to make sure it looks right.
 <br><br>
 1. Release the assignment to the students, so they can actually access it:
 <br><br></p>
-<div class="highlight"><pre><span></span>nbgrader release hw1
+<div class="highlight"><pre><span></span>    nbgrader release hw1
 </pre></div>
 
 
 <p><br><br>
 1. Make sure it has gone out ok:
 <br><br></p>
-<div class="highlight"><pre><span></span>nbgrader list
+<div class="highlight"><pre><span></span>    nbgrader list
 </pre></div>
 
 
+</li>
+</ol>
 <p><br><br></p>
 <h2>Student end</h2>
 <p><br><br></p>
