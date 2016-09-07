@@ -158,9 +158,9 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
     - after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn't;
     - After finishing a notebook, they can go back to the server page and click to validate that notebook, which runs all of the test cells and states if there are any errors. They can do this as many times as they want;
     - The system will note when the assignment is submitted, so they need to turn it in on time.
-        &lt;br&gt;&lt;br&gt;
-        &lt;img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%"&gt;
-        &lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%"&gt;
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;Now the students can submit! They can do so however many times they want and just the last one will be used for grading;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Instructor end&lt;/h2&gt;
@@ -198,10 +198,10 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;!-- &lt;br&gt;&lt;br&gt;
-&lt;img src="images/jupyterhub+nbgrader/Assignments_rest.jpg" class="picFloat" width="100%"&gt;
-&lt;br&gt;&lt;br&gt; --&gt;
-
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments.jpg" class="picFloat" width="50%"&gt;
+&lt;img src="images/jupyterhub+nbgrader/formgrade_assignments_hw1.jpg" class="picFloat" width="50%"&gt;
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Then the files show up in their base directory in jupyterhub, notebooks, under a folder called “feedback”, then in the homework directory. When clicked on, the files will show up as editable html in the jupyterhub server, but you can slightly edit the address to see them nicely rendered, from:&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;       https://copano.tamu.edu:8000/user/pythontest/edit/feedback/hw1/partA.html
 
