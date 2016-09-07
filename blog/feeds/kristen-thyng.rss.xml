@@ -149,11 +149,15 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Student end&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the &lt;code&gt;Assignments&lt;/code&gt; tab, and clicking on the blue button to &lt;code&gt;Fetch&lt;/code&gt; the assignment. In this case, I have two classes appearing with an assignment to be fetched.
+&lt;li&gt;
+&lt;p&gt;Once the assignment has been made available by the instructor "releasing it," the student can access it by signing into the server, clicking on the &lt;code&gt;Assignments&lt;/code&gt; tab, and clicking on the blue button to &lt;code&gt;Fetch&lt;/code&gt; the assignment. In this case, I have two classes appearing with an assignment to be fetched.
 &lt;br&gt;&lt;br&gt;
 &lt;img src="images/jupyterhub+nbgrader/Assignments_fetch.jpg" class="picFloat" width="100%"&gt;
-&lt;br&gt;&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;After they have fetched the assignment, it will appear under &lt;code&gt;Downloaded assignments&lt;/code&gt;. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.&lt;ul&gt;
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After they have fetched the assignment, it will appear under &lt;code&gt;Downloaded assignments&lt;/code&gt;. There, they can click on the assignment name, which is a link, to see the notebooks inside, then click on each to open and work on them.&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;they can run the cells;&lt;/li&gt;
 &lt;li&gt;they delete the exception where it says to enter their code, and then enter their code;&lt;/li&gt;
 &lt;li&gt;after entering their code, there will be cells with test statements to check their work. They can and should run these to make sure their code works, then fix it if it doesn't;&lt;/li&gt;
@@ -164,7 +168,9 @@ This creates a directory with the basic stuff you need in it. All other nbgrader
 &lt;br&gt;&lt;br&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Submit! They can do so however many times they want and just the last one will be used for grading;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Submit! They can do so however many times they want and just the last one will be used for grading;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2&gt;Instructor end&lt;/h2&gt;
