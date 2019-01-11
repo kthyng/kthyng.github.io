@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Kristen M. Thyng, Ph.D. - Kristen Thyng</title><link href="http://www.kristenthyng.com/blog/" rel="alternate"></link><link href="http://www.kristenthyng.com/blog/feeds/kristen-thyng.atom.xml" rel="self"></link><id>http://www.kristenthyng.com/blog/</id><updated>2018-08-03T12:00:00-05:00</updated><entry><title>2018 REU End</title><link href="http://www.kristenthyng.com/blog/2018/08/03/reuend2018/" rel="alternate"></link><published>2018-08-03T12:00:00-05:00</published><updated>2018-08-03T12:00:00-05:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2018-08-03:/blog/2018/08/03/reuend2018/</id><summary type="html">&lt;p&gt;Finishing REU 2018 summer program&lt;/p&gt;</summary><content type="html">&lt;p&gt;After 10 busy weeks, we are saying goodbye to the 2018 REU students. The second-to-last day of the program, the students presented posters at the Texas A&amp;amp;M REU poster symposium.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Kristen M. Thyng, Ph.D. - Kristen Thyng</title><link href="http://www.kristenthyng.com/blog/" rel="alternate"></link><link href="http://www.kristenthyng.com/blog/feeds/kristen-thyng.atom.xml" rel="self"></link><id>http://www.kristenthyng.com/blog/</id><updated>2019-01-11T12:00:00-06:00</updated><entry><title>cmocean 2.0!</title><link href="http://www.kristenthyng.com/blog/2019/01/11/cmocean2.0/" rel="alternate"></link><published>2019-01-11T12:00:00-06:00</published><updated>2019-01-11T12:00:00-06:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2019-01-11:/blog/2019/01/11/cmocean2.0/</id><summary type="html">&lt;p&gt;Presenting a new version of cmocean colormaps&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have updated cmocean with four new colormaps! The newcomers are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;topo&lt;/li&gt;
+&lt;li&gt;rain&lt;/li&gt;
+&lt;li&gt;tarn&lt;/li&gt;
+&lt;li&gt;diff
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here are all the cmocean colormaps together, and there are lots more examples in the &lt;a href="https://matplotlib.org/cmocean/"&gt;docs&lt;/a&gt;:
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://matplotlib.org/cmocean/_images/index-1.png" class="picFloat" width="50%"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br clear="all" /&gt;&lt;/p&gt;</content><category term="cmocean"></category><category term="colormaps"></category><category term="plotting"></category></entry><entry><title>2018 REU End</title><link href="http://www.kristenthyng.com/blog/2018/08/03/reuend2018/" rel="alternate"></link><published>2018-08-03T12:00:00-05:00</published><updated>2018-08-03T12:00:00-05:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2018-08-03:/blog/2018/08/03/reuend2018/</id><summary type="html">&lt;p&gt;Finishing REU 2018 summer program&lt;/p&gt;</summary><content type="html">&lt;p&gt;After 10 busy weeks, we are saying goodbye to the 2018 REU students. The second-to-last day of the program, the students presented posters at the Texas A&amp;amp;M REU poster symposium.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;Molly with her poster:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
