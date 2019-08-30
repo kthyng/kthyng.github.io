@@ -67,10 +67,10 @@ As far as I understand, one of the main pain points for getting this all to work
 <p><br><br>
 With about 10 students in the class, it was annoying but not too hard to setup an account on the workstation for each of them. I used their student email nickname for their login, and made them part of a group so that I can use the group name for adding permissions and deleting them after the term is over. I chose their passwords for them since I wanted to be sure they had strong passwords. I am keeping track of them on my own (I use <a href="https://1password.com/">1password</a> to keep track of all this sort of thing, as well as generating passwords), and I read somewhere that sending someone a link to a public dropbox file is a relatively secure way to send information, so I made a file for each of them with their username and password and emailed it off.
 <br><br></p>
-<div class="highlight"><pre><span></span>    sudo groupadd pythonfall2016  # create group
-    # home directory is on a separate drive on this workstation
-    sudo useradd -G pythonfall2016 -d /d2/home/student_username_here student_username_here
-    sudo passwd username  # give them each a good password
+<div class="highlight"><pre><span></span>    <span class="n">sudo</span> <span class="n">groupadd</span> <span class="n">pythonfall2016</span>  <span class="o">#</span> <span class="k">create</span> <span class="k">group</span>
+    <span class="o">#</span> <span class="n">home</span> <span class="n">directory</span> <span class="k">is</span> <span class="k">on</span> <span class="n">a</span> <span class="n">separate</span> <span class="n">drive</span> <span class="k">on</span> <span class="n">this</span> <span class="n">workstation</span>
+    <span class="n">sudo</span> <span class="n">useradd</span> <span class="o">-</span><span class="k">G</span> <span class="n">pythonfall2016</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">d2</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">student_username_here</span> <span class="n">student_username_here</span>
+    <span class="n">sudo</span> <span class="n">passwd</span> <span class="n">username</span>  <span class="o">#</span> <span class="n">give</span> <span class="n">them</span> <span class="k">each</span> <span class="n">a</span> <span class="n">good</span> <span class="n">password</span>
 </pre></div>
 
 
@@ -131,15 +131,15 @@ I then added the group <code>pythonfall2016</code> to the authenticated list in 
 <h2>getting the authorization token setup for using formgrader</h2>
 <p>This has ended up being rather kludgey and I am sure there is a better way, but we ended up needing to change users to <code>jupyter</code>, the user that owns our JupyterHub server, in order to generate the necessary authentication token so that the nbgrader formgrade command would work, but generate the token in my username as the one who is actually authenticated to grade within the system. More information can be found from research scientist <a href="http://pong.tamu.edu/~baum/jupyter.html#_the_quick_and_easy_way_to_start_and_use_nbgrader_and_formgrader">Steve Baum</a>. Here is what we do:
 <br><br></p>
-<div class="highlight"><pre><span></span>    sudo -i -u jupyter
-    [password]
-    export JPY_API_TOKEN=$(/usr/local/bin/jupyterhub token --db=sqlite:////etc/jupyterhub/jupyterhub.sqlite -f /etc/jupyterhub/jupyterhub_config.py my_user_name)
-    env | grep JPY
-    JPY_API_TOKEN=[token]
-    exit
-    # Stick these into my .bash_profile
-    export CONFIGPROXY_AUTH_TOKEN=&#39;[token goes here]’
-    export JPY_API_TOKEN=[other token from jupyterhub setup]
+<div class="highlight"><pre><span></span>    <span class="nv">sudo</span> <span class="o">-</span><span class="nv">i</span> <span class="o">-</span><span class="nv">u</span> <span class="nv">jupyter</span>
+    [<span class="nv">password</span>]
+    <span class="nv">export</span> <span class="nv">JPY_API_TOKEN</span><span class="o">=</span>$<span class="ss">(</span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">bin</span><span class="o">/</span><span class="nv">jupyterhub</span> <span class="nv">token</span> <span class="o">--</span><span class="nv">db</span><span class="o">=</span><span class="nv">sqlite</span>:<span class="o">////</span><span class="nv">etc</span><span class="o">/</span><span class="nv">jupyterhub</span><span class="o">/</span><span class="nv">jupyterhub</span>.<span class="nv">sqlite</span> <span class="o">-</span><span class="nv">f</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">jupyterhub</span><span class="o">/</span><span class="nv">jupyterhub_config</span>.<span class="nv">py</span> <span class="nv">my_user_name</span><span class="ss">)</span>
+    <span class="nv">env</span> <span class="o">|</span> <span class="nv">grep</span> <span class="nv">JPY</span>
+    <span class="nv">JPY_API_TOKEN</span><span class="o">=</span>[<span class="nv">token</span>]
+    <span class="k">exit</span>
+    # <span class="nv">Stick</span> <span class="nv">these</span> <span class="nv">into</span> <span class="nv">my</span> .<span class="nv">bash_profile</span>
+    <span class="nv">export</span> <span class="nv">CONFIGPROXY_AUTH_TOKEN</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">[token goes here]’</span>
+    <span class="nv">export</span> <span class="nv">JPY_API_TOKEN</span><span class="o">=</span>[<span class="nv">other</span> <span class="nv">token</span> <span class="nv">from</span> <span class="nv">jupyterhub</span> <span class="nv">setup</span>]
 </pre></div>
 
 
@@ -147,14 +147,14 @@ I then added the group <code>pythonfall2016</code> to the authenticated list in 
 <h2>A little more setup</h2>
 <p>Note that the default exchange server is located at:
 <br><br></p>
-<div class="highlight"><pre><span></span>    c.TransferApp.exchange_directory = &#39;/srv/nbgrader/exchange&#39;
+<div class="highlight"><pre><span></span>    <span class="k">c</span><span class="p">.</span><span class="n">TransferApp</span><span class="p">.</span><span class="n">exchange_directory</span> <span class="o">=</span> <span class="s1">&#39;/srv/nbgrader/exchange&#39;</span>
 </pre></div>
 
 
 <p><br><br></p>
 <p>I made the directory and then made it read and writeable by everyone with:
 <br><br></p>
-<div class="highlight"><pre><span></span>    chmod ugo+rw /srv/nbgrader/exchange
+<div class="highlight"><pre><span></span>    <span class="n">chmod</span> <span class="n">ugo</span><span class="o">+</span><span class="n">rw</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">nbgrader</span><span class="o">/</span><span class="n">exchange</span>
 </pre></div>
 
 
@@ -163,16 +163,16 @@ I installed the nbgrader extension, but did it separately for me and for the stu
 <br><br>
 For me as grader and assignment-maker:
 <br><br></p>
-<div class="highlight"><pre><span></span>    nbgrader extension install --symlink --user
-    nbgrader extension activate
+<div class="highlight"><pre><span></span>    <span class="n">nbgrader</span> <span class="n">extension</span> <span class="n">install</span> <span class="c1">--symlink --user</span>
+    <span class="n">nbgrader</span> <span class="n">extension</span> <span class="n">activate</span>
 </pre></div>
 
 
 <p><br><br>
 For students:
 <br><br></p>
-<div class="highlight"><pre><span></span>    nbgrader extension install assignment_list --user
-    nbgrader extension activate assignment_list
+<div class="highlight"><pre><span></span>    <span class="n">nbgrader</span> <span class="n">extension</span> <span class="n">install</span> <span class="n">assignment_list</span> <span class="c1">--user</span>
+    <span class="n">nbgrader</span> <span class="n">extension</span> <span class="n">activate</span> <span class="n">assignment_list</span>
 </pre></div>
 
 
@@ -182,7 +182,7 @@ Now we want to actually do the assignments. Here is my summary of the steps, bas
 <h2>Instructor perspective</h2>
 <p>Start your course directory within your <code>notebooks</code> directory, or wherever is the landing pad for JupyterHub within your directory. I'll use <code>oncg669</code> as my course id and name.
 <br><br></p>
-<div class="highlight"><pre><span></span>    nbgrader quickstart ocng669
+<div class="highlight"><pre><span></span>    <span class="n">nbgrader</span> <span class="n">quickstart</span> <span class="n">ocng669</span>
 </pre></div>
 
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Kristen M. Thyng, Ph.D. - misc</title><link href="http://www.kristenthyng.com/blog/" rel="alternate"></link><link href="http://www.kristenthyng.com/blog/feeds/misc.atom.xml" rel="self"></link><id>http://www.kristenthyng.com/blog/</id><updated>2019-01-11T12:00:00-06:00</updated><entry><title>cmocean 2.0!</title><link href="http://www.kristenthyng.com/blog/2019/01/11/cmocean2.0/" rel="alternate"></link><published>2019-01-11T12:00:00-06:00</published><updated>2019-01-11T12:00:00-06:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2019-01-11:/blog/2019/01/11/cmocean2.0/</id><summary type="html">&lt;p&gt;Presenting a new version of cmocean colormaps&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have updated cmocean with four new colormaps! The newcomers are:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Kristen M. Thyng, Ph.D. - misc</title><link href="http://www.kristenthyng.com/blog/" rel="alternate"></link><link href="http://www.kristenthyng.com/blog/feeds/misc.atom.xml" rel="self"></link><id>http://www.kristenthyng.com/blog/</id><updated>2019-05-23T12:00:00-05:00</updated><entry><title>Aggies Celebrate Teaching! Award</title><link href="http://www.kristenthyng.com/blog/2019/05/23/award/" rel="alternate"></link><published>2019-05-23T12:00:00-05:00</published><updated>2019-05-23T12:00:00-05:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2019-05-23:/blog/2019/05/23/award/</id><summary type="html">&lt;p&gt;Aggies Celebrate Teaching! Award&lt;/p&gt;</summary><content type="html">&lt;p&gt;I was honored to receive a teaching award this spring! I received the &lt;a href="https://cte.tamu.edu/Events-and-Awards"&gt;&lt;em&gt;Aggies Celebrate Teaching!&lt;/em&gt;&lt;/a&gt; award, which is given out by the Texas A&amp;amp;M Center for Teaching Excellence. 100 teachers were nominated across three campuses, and 6 winners were selected. Students nominate teachers who have made a big impact on them through their transformative teaching. There was a reception associated with this award that was lovely to attend and hear from the students about their experiences.&lt;/p&gt;
+&lt;p&gt;There are more details in an article from the &lt;a href="https://geonews.tamu.edu/news/2019/04/ocng_thyng-ACTaward.php"&gt;College of Geosciences&lt;/a&gt; and the &lt;a href="http://cte.tamu.edu/News/3rd-Annual-Aggies-Celebrate-Teaching!-Recognized-S"&gt;Center for Teaching Excellence&lt;/a&gt;.
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://geonews.tamu.edu/images/news/FARRAR_THYNG5_head.png" class="picFloat" width="80%"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br clear="all" /&gt;&lt;/p&gt;</content><category term="award"></category><category term="teaching"></category><category term="python"></category></entry><entry><title>cmocean 2.0!</title><link href="http://www.kristenthyng.com/blog/2019/01/11/cmocean2.0/" rel="alternate"></link><published>2019-01-11T12:00:00-06:00</published><updated>2019-01-11T12:00:00-06:00</updated><author><name>Kristen Thyng</name></author><id>tag:www.kristenthyng.com,2019-01-11:/blog/2019/01/11/cmocean2.0/</id><summary type="html">&lt;p&gt;Presenting a new version of cmocean colormaps&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have updated cmocean with four new colormaps! The newcomers are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;topo&lt;/li&gt;
 &lt;li&gt;rain&lt;/li&gt;
@@ -160,10 +164,10 @@ As far as I understand, one of the main pain points for getting this all to work
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
 With about 10 students in the class, it was annoying but not too hard to setup an account on the workstation for each of them. I used their student email nickname for their login, and made them part of a group so that I can use the group name for adding permissions and deleting them after the term is over. I chose their passwords for them since I wanted to be sure they had strong passwords. I am keeping track of them on my own (I use &lt;a href="https://1password.com/"&gt;1password&lt;/a&gt; to keep track of all this sort of thing, as well as generating passwords), and I read somewhere that sending someone a link to a public dropbox file is a relatively secure way to send information, so I made a file for each of them with their username and password and emailed it off.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo groupadd pythonfall2016  # create group
-    # home directory is on a separate drive on this workstation
-    sudo useradd -G pythonfall2016 -d /d2/home/student_username_here student_username_here
-    sudo passwd username  # give them each a good password
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;groupadd&lt;/span&gt; &lt;span class="n"&gt;pythonfall2016&lt;/span&gt;  &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;create&lt;/span&gt; &lt;span class="k"&gt;group&lt;/span&gt;
+    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;home&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;separate&lt;/span&gt; &lt;span class="n"&gt;drive&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;workstation&lt;/span&gt;
+    &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;useradd&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;G&lt;/span&gt; &lt;span class="n"&gt;pythonfall2016&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;d2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;student_username_here&lt;/span&gt; &lt;span class="n"&gt;student_username_here&lt;/span&gt;
+    &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;passwd&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt;  &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;give&lt;/span&gt; &lt;span class="n"&gt;them&lt;/span&gt; &lt;span class="k"&gt;each&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;good&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -224,15 +228,15 @@ I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authentica
 &lt;h2&gt;getting the authorization token setup for using formgrader&lt;/h2&gt;
 &lt;p&gt;This has ended up being rather kludgey and I am sure there is a better way, but we ended up needing to change users to &lt;code&gt;jupyter&lt;/code&gt;, the user that owns our JupyterHub server, in order to generate the necessary authentication token so that the nbgrader formgrade command would work, but generate the token in my username as the one who is actually authenticated to grade within the system. More information can be found from research scientist &lt;a href="http://pong.tamu.edu/~baum/jupyter.html#_the_quick_and_easy_way_to_start_and_use_nbgrader_and_formgrader"&gt;Steve Baum&lt;/a&gt;. Here is what we do:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo -i -u jupyter
-    [password]
-    export JPY_API_TOKEN=$(/usr/local/bin/jupyterhub token --db=sqlite:////etc/jupyterhub/jupyterhub.sqlite -f /etc/jupyterhub/jupyterhub_config.py my_user_name)
-    env | grep JPY
-    JPY_API_TOKEN=[token]
-    exit
-    # Stick these into my .bash_profile
-    export CONFIGPROXY_AUTH_TOKEN=&amp;#39;[token goes here]’
-    export JPY_API_TOKEN=[other token from jupyterhub setup]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nv"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;u&lt;/span&gt; &lt;span class="nv"&gt;jupyter&lt;/span&gt;
+    [&lt;span class="nv"&gt;password&lt;/span&gt;]
+    &lt;span class="nv"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;JPY_API_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;$&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;jupyterhub&lt;/span&gt; &lt;span class="nv"&gt;token&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;db&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;sqlite&lt;/span&gt;:&lt;span class="o"&gt;////&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;jupyterhub&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;jupyterhub&lt;/span&gt;.&lt;span class="nv"&gt;sqlite&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;f&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;jupyterhub&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;jupyterhub_config&lt;/span&gt;.&lt;span class="nv"&gt;py&lt;/span&gt; &lt;span class="nv"&gt;my_user_name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    &lt;span class="nv"&gt;env&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;grep&lt;/span&gt; &lt;span class="nv"&gt;JPY&lt;/span&gt;
+    &lt;span class="nv"&gt;JPY_API_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;[&lt;span class="nv"&gt;token&lt;/span&gt;]
+    &lt;span class="k"&gt;exit&lt;/span&gt;
+    # &lt;span class="nv"&gt;Stick&lt;/span&gt; &lt;span class="nv"&gt;these&lt;/span&gt; &lt;span class="nv"&gt;into&lt;/span&gt; &lt;span class="nv"&gt;my&lt;/span&gt; .&lt;span class="nv"&gt;bash_profile&lt;/span&gt;
+    &lt;span class="nv"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CONFIGPROXY_AUTH_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;[token goes here]’&lt;/span&gt;
+    &lt;span class="nv"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;JPY_API_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;[&lt;span class="nv"&gt;other&lt;/span&gt; &lt;span class="nv"&gt;token&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="nv"&gt;jupyterhub&lt;/span&gt; &lt;span class="nv"&gt;setup&lt;/span&gt;]
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -240,14 +244,14 @@ I then added the group &lt;code&gt;pythonfall2016&lt;/code&gt; to the authentica
 &lt;h2&gt;A little more setup&lt;/h2&gt;
 &lt;p&gt;Note that the default exchange server is located at:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    c.TransferApp.exchange_directory = &amp;#39;/srv/nbgrader/exchange&amp;#39;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TransferApp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exchange_directory&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/srv/nbgrader/exchange&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;I made the directory and then made it read and writeable by everyone with:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    chmod ugo+rw /srv/nbgrader/exchange
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="n"&gt;ugo&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;srv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nbgrader&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;exchange&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -256,16 +260,16 @@ I installed the nbgrader extension, but did it separately for me and for the stu
 &lt;br&gt;&lt;br&gt;
 For me as grader and assignment-maker:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader extension install --symlink --user
-    nbgrader extension activate
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;nbgrader&lt;/span&gt; &lt;span class="n"&gt;extension&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="c1"&gt;--symlink --user&lt;/span&gt;
+    &lt;span class="n"&gt;nbgrader&lt;/span&gt; &lt;span class="n"&gt;extension&lt;/span&gt; &lt;span class="n"&gt;activate&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
 For students:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader extension install assignment_list --user
-    nbgrader extension activate assignment_list
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;nbgrader&lt;/span&gt; &lt;span class="n"&gt;extension&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;assignment_list&lt;/span&gt; &lt;span class="c1"&gt;--user&lt;/span&gt;
+    &lt;span class="n"&gt;nbgrader&lt;/span&gt; &lt;span class="n"&gt;extension&lt;/span&gt; &lt;span class="n"&gt;activate&lt;/span&gt; &lt;span class="n"&gt;assignment_list&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -275,7 +279,7 @@ Now we want to actually do the assignments. Here is my summary of the steps, bas
 &lt;h2&gt;Instructor perspective&lt;/h2&gt;
 &lt;p&gt;Start your course directory within your &lt;code&gt;notebooks&lt;/code&gt; directory, or wherever is the landing pad for JupyterHub within your directory. I'll use &lt;code&gt;oncg669&lt;/code&gt; as my course id and name.
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nbgrader quickstart ocng669
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;nbgrader&lt;/span&gt; &lt;span class="n"&gt;quickstart&lt;/span&gt; &lt;span class="n"&gt;ocng669&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
